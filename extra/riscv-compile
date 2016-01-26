@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Strip the extension from the name of the file
+NAME=`echo "$1" | awk -F "." '{print $FNR}'`
+
+# (TODO) Determine if we have any command line arguments
+# I really don't feel like doing getopt again @_@
+
+
+# Make things here
+clang-riscv -target riscv -mriscv=RV64IM -S $NAME.c -o $NAME.S
+riscv64-unknown-elf-gcc -o $NAME.riscv $NAME.S

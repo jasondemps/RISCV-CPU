@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### Emacs ###
 # -*- mode: gitignore; -*-
 **/*~
@@ -9,6 +10,7 @@
 auto-save-list
 tramp
 .\#*
+
 
 # Org-mode
 .org-id-locations
@@ -36,3 +38,4 @@ tramp
 /.~lock.Thumb Instruction Set Edited.xlsx#
 
 riscv-llvm/
+riscv-gnu-toolchain/
