@@ -11,6 +11,9 @@ tramp
 .\#*
 .~*
 
+# RISCV binaries
+**/*.riscv
+
 # Org-mode
 .org-id-locations
 *_archive
