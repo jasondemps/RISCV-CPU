@@ -8,5 +8,5 @@ int main() {
     n += i * 2;
   }
   
-  return 0;
+  return n;
 }

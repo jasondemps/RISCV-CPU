@@ -25,7 +25,7 @@ main:
 	sw	x5, 8(x8)
 	j	.LBB0_1
 .LBB0_4:
-	addiw	x10, x0, 0
+	lw	x10, 4(x8)
 	add	x2, x0, x8
 	ld	x8, 16(x2)
 	addi	x2, x2, 24
