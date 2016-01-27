@@ -1,0 +1,30 @@
+* Pipeline
+** Try to remove stalling
+Forward data through pipeline with additional register + multiplexer
+Do bubble similar to ECE399 computer.
+
+* Cache Scheme
+** 2-way set assoc.
+
+** Also try for a Victim cache?
+Fully associative, small, holds evicted blocks from main cache.
+Intended to reduce conflict misses.
+
+
+* Branch Prediction
+** 2-level Adaptive
+LSB Branch addr => correlation register pattern
+
+Correlation register = previous branch outcomes pattern
+
+Correlation register pattern => entry in Global pattern table
+
+Entries in GPT may be shared by any correlation register pattern.
+*** Pro
+Reasonable hardware, lower than others such as correlation-based.
+
+** Bimodal
+Address of branch instr (LSB) = index into global table of prediction bits
+When branch outcome is known, table entry is updated.
+*** Pro
+Cheapest hardware

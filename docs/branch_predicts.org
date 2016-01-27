@@ -1,0 +1,19 @@
+
+
+* Branch Predictor
+** 2-level Adaptive
+LSB Branch addr => correlation register pattern
+
+Correlation register = previous branch outcomes pattern
+
+Correlation register pattern => entry in Global pattern table
+
+Entries in GPT may be shared by any correlation register pattern.
+*** Pro
+Reasonable hardware, lower than others such as correlation-based.
+
+** Bimodal
+Address of branch instr (LSB) = index into global table of prediction bits
+When branch outcome is known, table entry is updated.
+*** Pro
+Cheapest hardware
