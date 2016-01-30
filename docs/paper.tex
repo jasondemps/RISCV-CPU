@@ -1,0 +1,81 @@
+% Created 2016-01-29 Fri 14:23
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\author{Jason Dempsey}
+\date{}
+\title{RISCV CPU in Synthesizable VHDL}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs 24.5.1 (Org mode 8.2.10)}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+
+\section{Introduction}
+\label{sec-1}
+This project is a 4-stage pipeline, Reduced Instruction Set Computer-5 (RISCV) with branch prediction and a dedicated caching mechanism. 
+
+\section{Part Choice}
+\label{sec-2}
+For this project, I will be using the DE0 nano Development and Education Board as the main development platform. With approximately 22,000 Logic Elements, this board will have no problem synthesizing the CPU.
+
+\section{Implementation}
+\label{sec-3}
+
+
+
+\subsection{Pipeline}
+\label{sec-3-1}
+
+\subsubsection{Instruction Fetch}
+\label{sec-3-1-1}
+In this stage, the program counter is updated based on either a branch, or simply incremented. From here, the new instruction is looked up based on that counter value.
+\subsubsection{Instruction Decode}
+\label{sec-3-1-2}
+Here, the instruction from memory is decoded. In this stage, the register file is 'primed' for 
+\begin{enumerate}
+\item Hazard Detection / Mitigation
+\label{sec-3-1-2-1}
+\end{enumerate}
+
+\subsubsection{Execute}
+\label{sec-3-1-3}
+
+
+
+\subsubsection{Store / Writeback}
+\label{sec-3-1-4}
+
+
+\subsection{Main memory}
+\label{sec-3-2}
+Main memory will use the SDRAM on the 
+
+\subsection{Cache}
+\label{sec-3-3}
+The caching scheme that will be used will be a 2-way set associative cache. This method extracts the last bits from the LSB as a tag to perform a lookup for the specific data, associated with that tag. If it is found, it is a cache hit and can be returned, if not, it is a cache miss and the pipeline must wait on the SDRAM, in this case main memory, to retrive the piece of data.
+
+\subsection{Branch Prediction}
+\label{sec-3-4}
+Branch Prediction is generallly used within a RISC pipeline to mitigate a pipeline flush which 
+% Emacs 24.5.1 (Org mode 8.2.10)
+\end{document}

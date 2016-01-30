@@ -1,0 +1,38 @@
+#+TITLE: RISCV CPU in Synthesizable VHDL
+#+AUTHOR: Jason Dempsey
+#+date:
+
+
+* Introduction
+This project is a 4-stage pipeline, Reduced Instruction Set Computer-5 (RISCV) with branch prediction and a dedicated caching mechanism. 
+
+* Part Choice
+For this project, I will be using the DE0 nano Development and Education Board as the main development platform. With approximately 22,000 Logic Elements, this board will have no problem synthesizing the CPU.
+
+* Implementation
+
+
+
+** Pipeline
+
+*** Instruction Fetch
+    In this stage, the program counter is updated based on either a branch, or simply incremented. From here, the new instruction is looked up based on that counter value.
+*** Instruction Decode
+    Here, the instruction from memory is decoded. In this stage, the register file is 'primed' for 
+**** Hazard Detection / Mitigation
+
+*** Execute
+    In the execute phase, the instruction is actually executed here. The ALU processes the values from the Register File 
+
+
+*** Store / Writeback
+
+
+** Main memory
+Main memory will reside on the SDRAM module. 
+
+** Cache
+The caching scheme that will be used will be a 2-way set associative cache. This method extracts the last bits from the LSB as a tag to perform a lookup for the specific data, associated with that tag. If it is found, it is a cache hit and can be returned, if not, it is a cache miss and the pipeline must wait on the SDRAM, in this case main memory, to retrive the piece of data.
+
+** Branch Prediction
+Branch Prediction is generallly used within a RISC pipeline to mitigate a pipeline flush which can be a source of delay within execution of a program. Without any branch prediction, a pipeline will 
