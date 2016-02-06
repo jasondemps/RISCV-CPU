@@ -4,14 +4,12 @@
 
 
 * Introduction
-This project is a 4-stage pipeline, Reduced Instruction Set Computer-5 (RISCV) with branch prediction and a dedicated caching mechanism. 
+This project is a 4-stage pipeline, Reduced Instruction Set Computer-5 (RISCV) with branch prediction and a dedicated caching mechanism. The 4 stages within the pipeline are Instruction Fetch (IF), Instruction Decode (ID), Execute (Ex), and Writeback or Store (WB).
 
 * Part Choice
 For this project, I will be using the DE0 nano Development and Education Board as the main development platform. With approximately 22,000 Logic Elements, this board will have no problem synthesizing the CPU.
 
 * Implementation
-
-
 
 ** Pipeline
 
@@ -22,7 +20,7 @@ For this project, I will be using the DE0 nano Development and Education Board a
 **** Hazard Detection / Mitigation
 
 *** Execute
-    In the execute phase, the instruction is actually executed here. The ALU processes the values from the Register File 
+    In the execute phase, the instruction is actually executed here. The ALU processes the values from the Register File module 
 
 
 *** Store / Writeback
