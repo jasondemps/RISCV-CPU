@@ -1,4 +1,4 @@
-% Created 2016-01-29 Fri 14:23
+% Created 2016-02-06 Sat 16:45
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -16,6 +16,13 @@
 \usepackage{amssymb}
 \usepackage{hyperref}
 \tolerance=1000
+\usepackage{setspace}
+\singlespacing
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\setlist[enumerate,itemize]{noitemsep,nolistsep,leftmargin=*}
+\usepackage[notes,isbn=false,backend=biber]{biblatex-chicago}
+\addbibresource{main.bib}
 \author{Jason Dempsey}
 \date{}
 \title{RISCV CPU in Synthesizable VHDL}
@@ -26,21 +33,19 @@
 \begin{document}
 
 \maketitle
-\tableofcontents
-
 
 
 \section{Introduction}
 \label{sec-1}
-This project is a 4-stage pipeline, Reduced Instruction Set Computer-5 (RISCV) with branch prediction and a dedicated caching mechanism. 
+This project is a 4-stage pipeline, Reduced Instruction Set Computer-5 (RISCV) Instruction Set Architecture (ISA) utilizing branch prediction and a dedicated caching scheme. The 4 stages within the pipeline are Instruction Fetch (IF), Instruction Decode (ID), Execute (Ex), and Writeback or Store (ST).
 
 \section{Part Choice}
 \label{sec-2}
-For this project, I will be using the DE0 nano Development and Education Board as the main development platform. With approximately 22,000 Logic Elements, this board will have no problem synthesizing the CPU.
+For this project, I will be using the DE0 nano Development and Education Board as the main development platform. 
 
 \section{Implementation}
 \label{sec-3}
-
+Adhering to the RISC-V V2.0 specification, the standard word size will be 32-bits and will consist of 32 general purpose registers of 1 word in size. An additional, separate, register will be used to store the value of the program counter, which is only accessible through one instruction in the base Instruction Set Architecture (ISA).
 
 
 \subsection{Pipeline}
@@ -48,18 +53,17 @@ For this project, I will be using the DE0 nano Development and Education Board a
 
 \subsubsection{Instruction Fetch}
 \label{sec-3-1-1}
-In this stage, the program counter is updated based on either a branch, or simply incremented. From here, the new instruction is looked up based on that counter value.
+In this stage, the program counter is updated based on either a predicted branch, a true branch, or simply incremented. From here, the next instruction is looked up in the Data Cache, based on the counter value. 
 \subsubsection{Instruction Decode}
 \label{sec-3-1-2}
-Here, the instruction from memory is decoded. In this stage, the register file is 'primed' for 
+Here, the instruction from memory is decoded. If an instruction uses registers to perform the necessary operation, those register addresses are output to the register file.
 \begin{enumerate}
 \item Hazard Detection / Mitigation
 \label{sec-3-1-2-1}
 \end{enumerate}
-
 \subsubsection{Execute}
 \label{sec-3-1-3}
-
+In the execute phase, the instruction is actually executed here. The ALU processes the values from the Register File module 
 
 
 \subsubsection{Store / Writeback}
@@ -68,14 +72,35 @@ Here, the instruction from memory is decoded. In this stage, the register file i
 
 \subsection{Main memory}
 \label{sec-3-2}
-Main memory will use the SDRAM on the 
+Main memory will reside on the SDRAM module. 
 
-\subsection{Cache}
+\subsection{Data Cache}
 \label{sec-3-3}
 The caching scheme that will be used will be a 2-way set associative cache. This method extracts the last bits from the LSB as a tag to perform a lookup for the specific data, associated with that tag. If it is found, it is a cache hit and can be returned, if not, it is a cache miss and the pipeline must wait on the SDRAM, in this case main memory, to retrive the piece of data.
 
+
 \subsection{Branch Prediction}
 \label{sec-3-4}
-Branch Prediction is generallly used within a RISC pipeline to mitigate a pipeline flush which 
+Branch Prediction is generallly used within a RISC pipeline to mitigate a pipeline flush which can be a source of delay within execution of a program. 
+
+\subsubsection{Implementation}
+\label{sec-3-4-1}
+The prediction scheme will be a 'bimodal' prediction algorithm. \cite{bate2005efficient}While one of the simplest, it's success rate is high in comparison with much more advanced prediction schemes. The branch target address is used as a 'tag' to look up a two bit value in a table. This two bit value is a state value within a 4-state state machine as described in the following table:
+
+\begin{center}
+\begin{tabular}{rl}
+Value & Usage\\
+\hline
+00 & 'Strongly' Not Taken\\
+01 & 'Weakly' Not Taken\\
+10 & 'Weakly' Taken\\
+11 & 'Strongly' Taken\\
+\end{tabular}
+\end{center}
+
+Once the branch predictor has output this state value, it must also determine the target address the branch will jump to, so that new instruction may be fetched. To do this, a two-way set associative cache of target addresses will be used, which is similar to the data cache. 
+
+
+Upon decoding a branch instruction, prediction hardware will operate independently of the actual pipeline. Adhering to the RISC-V V2.0 guidelines, upon first decoding a backward branch, it will be predicted as 'taken'. Symmetrically, the first decode of a forward branch will predict a 'not taken'. 
 % Emacs 24.5.1 (Org mode 8.2.10)
 \end{document}

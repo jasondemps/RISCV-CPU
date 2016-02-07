@@ -16,4 +16,4 @@ Reasonable hardware, lower than others such as correlation-based.
 Address of branch instr (LSB) = index into global table of prediction bits
 When branch outcome is known, table entry is updated.
 *** Pro
-Cheapest hardware
+    Cheapest hardware
