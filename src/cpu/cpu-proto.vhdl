@@ -5,6 +5,8 @@ use ieee.std_logic_misc.all;
 
 use work.declares.all;
 
+use work.instrset.all;
+
 -- Try to keep a generic interface for interacting with the cache/memory mechanism
 -- I'll probably have an external memory controller on the outside to
 -- facilitate cache + SDRAM/main memory stuff
@@ -44,6 +46,9 @@ architecture Sim_CPU of CPU is
   signal reg_addr3 : word_unsigned;     -- Reg Destination
 
   signal exec_instr : word_unsigned;
+
+  type stall_state is (idle, init, done);
+  signal load_stall : unsigned(1 downto 0);
 begin
 
   -- FETCH
@@ -83,9 +88,12 @@ begin
 
       -- Load
       when "0000011" =>
+        -- Stall?
+        load_stall <= 1;
 
       -- Store
       when "0100011" =>
+        reg_addr2 <= mem_instr(24 downto 20);
 
       -- Arith Imm
       when "0010011" =>
@@ -101,28 +109,91 @@ begin
     end case?;
   end process;
 
+  -- Stall FSM
+  process(load_stall)
+
+  begin
+    case (load_stall) is
+      when idle =>
+      when init =>
+      when done =>
+    end case;
+  end process;
+
   -- EXECUTE
   -- Perform operation based on opcode, also determine actual branch target.
-  process(exec_instr, reg_data1, reg_data2)
+  process(exec_instr, reg_data1, reg_data2, reg_data3)
 
   begin
     if ~(exec_instr = NOP) then
       case? mem_instr(6 downto 0) is
         -- Branch
         when "1100011" =>
-
+          case mem_instr(14 downto 12) is
+            when "000" =>
+            when "001" =>
+            when "010" =>
+            when "011" =>
+            when "100" =>
+            when "101" =>
+            when "110" =>
+            when "111" =>
+          end case;
         -- Load
         when "0000011" =>
-
+          case mem_instr(14 downto 12) is
+            when "000" =>
+            when "001" =>
+            when "010" =>
+            when "011" =>
+            when "100" =>
+            when "101" =>
+            when others =>
+          end case;
         -- Store
         when "0100011" =>
+          case mem_instr(14 downto 12) is
+            when "000" =>
+            when "001" =>
+            when "010" =>
+            when others =>
+          end case;
 
         -- Arith Imm
         when "0010011" =>
-
-        -- Arith Regs + Mult Regs
-        when "011-011" =>
-
+          case mem_instr(14 downto 12) is
+            when "000" =>
+            when "001" =>
+            when "010" =>
+            when "011" =>
+            when "100" =>
+            when "101" =>
+            when others =>
+          end case;
+        -- Arith Regs
+        when "0110011" =>
+          case mem_instr(14 downto 12) is
+            when "000" =>
+            when "001" =>
+            when "010" =>
+            when "011" =>
+            when "100" =>
+            when "101" =>
+            when "110" =>
+            when "111" =>
+          end case;
+        -- Arith Mult Regs
+        when "0111011" =>
+          case mem_instr(14 downto 12) is
+            when "000" =>
+            when "001" =>
+            when "010" =>
+            when "011" =>
+            when "100" =>
+            when "101" =>
+            when "110" =>
+            when "111" =>
+          end case;
       end case?;
     end if
   end process;
