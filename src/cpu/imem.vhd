@@ -6,9 +6,11 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
 entity imem is
-  port(im_addr  : in  unsigned(10 downto 1);
-       im_instr : out unsigned(15 downto 0);
-       clock    : in  std_logic);
+  port(
+    im_addr  : in  unsigned(10 downto 1);
+    im_instr : out unsigned(15 downto 0);
+    clock    : in  std_logic
+    );
 end imem;
 
 architecture imem of imem is

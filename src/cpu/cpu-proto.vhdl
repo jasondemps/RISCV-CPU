@@ -33,14 +33,15 @@ architecture Sim_CPU of CPU is
   signal branch_mux   : word_unsigned;
   signal branch_cntrl : std_logic;
 
-  signal mem_addr : word_unsigned;
-  signal mem_data : word_unsigned;
+  signal mem_addr  : word_unsigned;
+  signal mem_instr : word_unsigned;
 
   signal pc_incr : word_unsigned;
 
   -- Registers
-  signal reg_addr1 : word_unsigned;
-  signal reg_addr2 : word_unsigned;
+  signal reg_addr1 : word_unsigned;     -- Reg Source 1
+  signal reg_addr2 : word_unsigned;     -- Reg Source 2
+  signal reg_addr3 : word_unsigned;     -- Reg Destination
 
   signal exec_instr : word_unsigned;
 begin
@@ -71,12 +72,14 @@ begin
 
   -- DECODE
   -- Perform stall and prime the register file.
-  process(mem_data)
+  process(mem_instr)
   begin
     -- TODO: Handle Stall
-    case? mem_data(6 downto 0) is
+    case? mem_instr(6 downto 0) is
       -- Branch
       when "1100011" =>
+        reg_addr1 <= mem_instr(19 downto 15);
+        reg_addr2 <= mem_instr(24 downto 20);
 
       -- Load
       when "0000011" =>
@@ -86,19 +89,43 @@ begin
 
       -- Arith Imm
       when "0010011" =>
+        reg_addr1 <= mem_instr(19 downto 15);
+        reg_addr3 <= mem_instr(11 downto 7);
 
-      -- Arith Regs
-      when "0110011" =>
+      -- Arith Regs + Mult Regs
+      when "011-011" =>
+        reg_addr1 <= mem_instr(19 downto 15);
+        reg_addr2 <= mem_instr(24 downto 20);
+        reg_addr3 <= mem_instr(11 downto 7);
 
-    end process;
+    end case?;
+  end process;
 
-    -- EXECUTE
-    -- Perform operation based on opcode, also determine actual branch target.
-    process(exec_instr, reg_data1, reg_data2)
+  -- EXECUTE
+  -- Perform operation based on opcode, also determine actual branch target.
+  process(exec_instr, reg_data1, reg_data2)
 
-    begin
+  begin
+    if ~(exec_instr = NOP) then
+      case? mem_instr(6 downto 0) is
+        -- Branch
+        when "1100011" =>
 
-    end process;
+        -- Load
+        when "0000011" =>
+
+        -- Store
+        when "0100011" =>
+
+        -- Arith Imm
+        when "0010011" =>
+
+        -- Arith Regs + Mult Regs
+        when "011-011" =>
+
+      end case?;
+    end if
+  end process;
 
 
-  end Sim_CPU;
+end Sim_CPU;
