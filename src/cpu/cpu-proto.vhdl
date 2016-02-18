@@ -131,7 +131,7 @@ begin
     variable immU  : unsigned(18 downto 0) := exec_instr(31 downto 12);
 
   begin
-    if ~(exec_instr = NOP) then
+    if exec_instr \= NOP then
       case? mem_instr(6 downto 0) is
         -- Branch
         when "1100011" =>
@@ -196,26 +196,42 @@ begin
               else                          -- SUB
                 reg_data3 <= reg_data1 - reg_data2;
               end if;
-            when "001" =>
-
-            when "010" =>
-            when "011" =>
-            when "100" =>
-            when "101" =>
-            when "110" =>
-            when "111" =>
+            when "001" =>                   -- SLL
+              reg_data3 <= reg_data1 sll to_integer(reg_data2);
+            when "010" =>                   -- SLT
+              reg_data3 <= to_unsigned(to_signed(reg_data1) < to_signed(reg_data2));
+            when "011" =>                   -- SLTU
+              reg_data3 <= reg_data1 < reg_data2;
+            when "100" =>                   -- XOR
+              reg_data3 <= reg_data1 xor reg_data2;
+            when "101" =>                   -- SRL / SRA
+              if exec_instr(0) then         -- SRL
+                reg_data3 <= reg_data1 srl to_integer(reg_data2(4 downto 0));
+              else                          -- SRA
+                reg_data3 <= reg_data1 sra to_integer(reg_data2(4 downto 0));
+              end if;
+            when "110" =>                   -- OR
+              reg_data3 <= reg_data1 or reg_data2;
+            when "111" =>                   -- AND
+              reg_data3 <= reg_data1 and reg_data2;
           end case;
         -- Arith Mult Regs
         when "0111011" =>
           case mem_instr(14 downto 12) is
-            when "000" =>
-            when "001" =>
-            when "010" =>
-            when "011" =>
-            when "100" =>
-            when "101" =>
-            when "110" =>
-            when "111" =>
+            when "000" => -- MUL
+              reg_data3 <= to_unsigned((to_signed(reg_data1) * to_signed(reg_data2))(31 downto 0));
+            when "001" => -- MULH
+              reg_data3 <= to_unsigned((to_signed(reg_data1) * to_signed(reg_data2))(63 downto 32));
+            when "010" => -- MULHSU
+              reg_data3 <= to_unsigned((to_signed(reg_data1) * reg_data2)(63 downto 32));
+            when "011" => -- MULHU
+              reg_data3 <= (reg_data1 * reg_data2)(63 downto 32);
+            when "100" => -- DIV
+              reg_data3 <= to_unsigned(to_signed(reg_data1) / to_signed(reg_data2));
+            when "101" => -- DIVU
+              reg_data3 <= reg_data1 / reg_data2;
+            when "110" => -- REM
+            when "111" => -- REMU
           end case;
       end case?;
     end if
