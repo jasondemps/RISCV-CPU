@@ -123,6 +123,12 @@ begin
   -- EXECUTE
   -- Perform operation based on opcode, also determine actual branch target.
   process(exec_instr, reg_data1, reg_data2, reg_data3)
+    variable imm11 : signed(11 downto 0)   := exec_instr(31 downto 20);
+    variable shamt : unsigned(4 downto 0)  := exec_instr(4 downto 0);
+    variable offI  : unsigned(11 downto 0) := exec_instr(31 downto 20);
+    variable offS  : unsigned(11 downto 0) := exec_instr(31 downto 25) & exec_instr(11 downto 7);
+    variable immUJ : unsigned(19 downto 0) := exec_instr(31) & exec_instr(19 downto 12) & exec_instr(20) & exec_instr(30 downto 21);
+    variable immU  : unsigned(18 downto 0) := exec_instr(31 downto 12);
 
   begin
     if ~(exec_instr = NOP) then
@@ -162,19 +168,36 @@ begin
         -- Arith Imm
         when "0010011" =>
           case mem_instr(14 downto 12) is
-            when "000" =>
-            when "001" =>
-            when "010" =>
-            when "011" =>
-            when "100" =>
-            when "101" =>
-            when others =>
+            when "000" =>                   -- ADDI
+              reg_data3 <= to_unsigned(to_signed(reg_data1) + to_signed(reg_data1));
+            when "001" =>                   -- SLLI
+              reg_data3 <= reg_data1 sll shamt;
+            when "010" =>                   -- SLTI
+              reg_data3 <= to_unsigned(to_signed(reg_data1) < imm11);
+            when "011" =>                   -- SLTIU
+              reg_data3 <= to_unsigned(reg_data1 < imm11);
+            when "100" =>                   -- XORI
+              reg_data3 <= to_unsigned(reg_data1 xor imm11);
+            when "101" =>                   -- SRLI / SRAI
+              if exec_instr(30) = '0' then  -- SRLI
+                reg_data3 <= to_unsigned(reg_data1 srl imm11);
+              else                          -- SRAI
+                reg_data3 <= to_unsigned(reg_data1 sla imm11);
+              end if;
+            when "111" =>                   -- ANDI
+              reg_data3 <= to_unsigned(reg_data and imm11);
           end case;
         -- Arith Regs
         when "0110011" =>
           case mem_instr(14 downto 12) is
-            when "000" =>
+            when "000" =>                   -- ADD / SUB
+              if exec_instr(30) = '0' then  -- ADD
+                reg_data3 <= reg_data1 + reg_data2;
+              else                          -- SUB
+                reg_data3 <= reg_data1 - reg_data2;
+              end if;
             when "001" =>
+
             when "010" =>
             when "011" =>
             when "100" =>
