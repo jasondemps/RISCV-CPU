@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 use ieee.std_logic_misc.all;
 
 use work.declares.all;
-
+use work.Utility.all;
 use work.instrset.all;
 
 -- Try to keep a generic interface for interacting with the cache/memory mechanism
@@ -123,57 +123,90 @@ begin
   -- EXECUTE
   -- Perform operation based on opcode, also determine actual branch target.
   process(exec_instr, reg_data1, reg_data2, reg_data3)
-    variable imm11 : signed(11 downto 0)   := exec_instr(31 downto 20);
-    variable shamt : unsigned(4 downto 0)  := exec_instr(4 downto 0);
-    variable offI  : unsigned(11 downto 0) := exec_instr(31 downto 20);
-    variable offS  : unsigned(11 downto 0) := exec_instr(31 downto 25) & exec_instr(11 downto 7);
-    variable immUJ : unsigned(19 downto 0) := exec_instr(31) & exec_instr(19 downto 12) & exec_instr(20) & exec_instr(30 downto 21);
-    variable immU  : unsigned(18 downto 0) := exec_instr(31 downto 12);
+    -- Immediates based on Instruction Type
+    variable imm11 : signed(11 downto 0);
+    variable shamt : unsigned(4 downto 0);
+    variable offI  : unsigned(11 downto 0);
+    variable offS  : unsigned(11 downto 0);
+    variable immUJ : unsigned(19 downto 0);
+    variable immU  : unsigned(18 downto 0);
+
+    -- Branch stuff
+    variable take_branch : std_logic;
 
   begin
-    if exec_instr \= NOP then
+    take_branch := '0';
+
+    imm11 := exec_instr(31 downto 20);
+    shamt := exec_instr(4 downto 0);
+    offI  := exec_instr(31 downto 20);
+    offS  := exec_instr(31 downto 25) & exec_instr(11 downto 7);
+    immUJ := exec_instr(31) & exec_instr(19 downto 12) & exec_instr(20) & exec_instr(30 downto 21);
+    immU  := exec_instr(31 downto 12);
+
+    -- Check for stall also?
+    if exec_instr \= NOP and load_stall = '0' then
       case? mem_instr(6 downto 0) is
+        when "0110111" =>               -- LUI
+          reg_data3 <= to_unsigned(exec_instr(31 downto 12), 32);
+
+        when "0010111" =>               -- AUIPC
+          reg_data3 <= to_unsigned(exec_instr(31 downto 12), 32) + pc;
+
+        when "1101111" =>               -- JAL
+          reg_data3 <= pc + 4;
+          pc        <= immUJ;
+
+        when "1100111" =>               -- JALR
+          reg_data3 <= pc + 4;
+          pc        <= immU + reg_data1;
+
         -- Branch
         when "1100011" =>
           case mem_instr(14 downto 12) is
-            when "000" =>
-            when "001" =>
-            when "010" =>
-            when "011" =>
-            when "100" =>
-            when "101" =>
-            when "110" =>
-            when "111" =>
+            when "000" =>               -- BEQ
+              take_branch <= reg_data1 = reg_data2;
+            when "001" =>               -- BNE
+              take_branch <= reg_data1 \= reg_data2;
+            when "100" =>               -- BLT
+              take_branch <= signed(std_logic_vector(reg_data1)) < signed(std_logic_vector(reg_data2));
+            when "101" =>               -- BGE
+              take_branch <= signed(std_logic_vector(reg_data1)) < signed(std_logic_vector(reg_data2));
+            when "110" =>               -- BLTU
+              take_branch <= reg_data1 < reg_data2;
+            when "111" =>               -- BGEU
+              take_branch <= reg_data1 >= reg_data2;
+            when others =>              -- Undefined...
+              take_branch := '0';
           end case;
         -- Load
         when "0000011" =>
           case mem_instr(14 downto 12) is
-            when "000" =>
-            when "001" =>
-            when "010" =>
-            when "011" =>
-            when "100" =>
-            when "101" =>
-            when others =>
+            when "000"  =>              -- LB
+            when "001"  =>              -- LH
+            when "010"  =>              -- LW
+            when "100"  =>              -- LBU
+            when "101"  =>              -- LHU
+            when others =>              -- Undefined
           end case;
         -- Store
         when "0100011" =>
           case mem_instr(14 downto 12) is
-            when "000" =>
-            when "001" =>
-            when "010" =>
-            when others =>
+            when "000"  =>              -- SB
+            when "001"  =>              -- SH
+            when "010"  =>              -- SW
+            when others =>              -- Undefined
           end case;
 
         -- Arith Imm
         when "0010011" =>
           case mem_instr(14 downto 12) is
             when "000" =>                   -- ADDI
-              reg_data3 <= to_unsigned(to_signed(reg_data1) + to_signed(reg_data1));
+              reg_data3 <= to_unsigned(signed(std_logic_vector(reg_data1) + signed(std_logic_vector(reg_data1));
             when "001" =>                   -- SLLI
               reg_data3 <= reg_data1 sll shamt;
             when "010" =>                   -- SLTI
-              reg_data3 <= to_unsigned(to_signed(reg_data1) < imm11);
+              reg_data3 <= to_unsigned(signed(std_logic_vector(reg_data1) < imm11);
             when "011" =>                   -- SLTIU
               reg_data3 <= to_unsigned(reg_data1 < imm11);
             when "100" =>                   -- XORI
@@ -199,7 +232,7 @@ begin
             when "001" =>                   -- SLL
               reg_data3 <= reg_data1 sll to_integer(reg_data2);
             when "010" =>                   -- SLT
-              reg_data3 <= to_unsigned(to_signed(reg_data1) < to_signed(reg_data2));
+              reg_data3 <= to_unsigned(signed(std_logic_vector(reg_data1) < signed(std_logic_vector(reg_data2));
             when "011" =>                   -- SLTU
               reg_data3 <= reg_data1 < reg_data2;
             when "100" =>                   -- XOR
@@ -218,20 +251,20 @@ begin
         -- Arith Mult Regs
         when "0111011" =>
           case mem_instr(14 downto 12) is
-            when "000" => -- MUL
-              reg_data3 <= to_unsigned((to_signed(reg_data1) * to_signed(reg_data2))(31 downto 0));
-            when "001" => -- MULH
-              reg_data3 <= to_unsigned((to_signed(reg_data1) * to_signed(reg_data2))(63 downto 32));
-            when "010" => -- MULHSU
-              reg_data3 <= to_unsigned((to_signed(reg_data1) * reg_data2)(63 downto 32));
-            when "011" => -- MULHU
+            when "000" =>                   -- MUL
+              reg_data3 <= to_unsigned((signed(std_logic_vector(reg_data1) * signed(std_logic_vector(reg_data2))(31 downto 0));
+            when "001" =>                   -- MULH
+              reg_data3 <= to_unsigned((signed(std_logic_vector(reg_data1) * signed(std_logic_vector(reg_data2))(63 downto 32));
+            when "010" =>                   -- MULHSU
+              reg_data3 <= to_unsigned((signed(std_logic_vector(reg_data1) * reg_data2)(63 downto 32));
+            when "011" =>                   -- MULHU
               reg_data3 <= (reg_data1 * reg_data2)(63 downto 32);
-            when "100" => -- DIV
-              reg_data3 <= to_unsigned(to_signed(reg_data1) / to_signed(reg_data2));
-            when "101" => -- DIVU
+            when "100" =>                   -- DIV
+              reg_data3 <= to_unsigned(signed(std_logic_vector(reg_data1) / signed(std_logic_vector(reg_data2));
+            when "101" =>                   -- DIVU
               reg_data3 <= reg_data1 / reg_data2;
-            when "110" => -- REM
-            when "111" => -- REMU
+            when "110" =>                   -- REM
+            when "111" =>                   -- REMU
           end case;
       end case?;
     end if
