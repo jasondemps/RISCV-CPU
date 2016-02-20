@@ -198,15 +198,17 @@ begin
           when "0000011" =>
             mem_instr := exec_instr(14 downto 12);
 
-            case exec_instr(14 downto 12) is
-              when "000" =>             -- LB
+            mem_addr := exec_instr(11 downto 7);
+            mem_data := exec_instr(19 downto 15) + offI;
 
-              when "001"  =>            -- LH
-              when "010"  =>            -- LW
-              when "100"  =>            -- LBU
-              when "101"  =>            -- LHU
-              when others =>            -- Undefined
-            end case;
+            --case exec_instr(14 downto 12) is
+            --  when "000" | "001" | "010" | "100" | "101" =>             -- LB
+            --  when "001"  =>            -- LH
+            --  when "010"  =>            -- LW
+            --  when "100"  =>            -- LBU
+            --  when "101"  =>            -- LHU
+            --  when others =>            -- Undefined
+            --end case;
 
           -- Store
           when "0100011" =>
