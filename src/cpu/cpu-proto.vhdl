@@ -278,7 +278,7 @@ begin
               when "001" =>                   -- MULH
                 reg_data3 <= unsigned((signed(std_logic_vector(reg_data1)) * signed(std_logic_vector(reg_data2)))(63 downto 32));
               when "010" =>                   -- MULHSU
-                reg_data3 <= unsigned((signed(std_logic_vector(reg_data1)) * reg_data2))(63 downto 32));
+                reg_data3 <= unsigned((signed(std_logic_vector(reg_data1)) * reg_data2))(63 downto 32);
               when "011" =>                   -- MULHU
                 reg_data3 <= (reg_data1 * reg_data2)(63 downto 32);
               when "100" =>                   -- DIV
