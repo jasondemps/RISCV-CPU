@@ -128,6 +128,7 @@ begin
     variable shamt : unsigned(4 downto 0);
     variable offI  : unsigned(11 downto 0);
     variable offS  : unsigned(11 downto 0);
+    variable offSB : unsigned(11 downto 0);
     variable immUJ : unsigned(19 downto 0);
     variable immU  : unsigned(18 downto 0);
 
@@ -138,6 +139,7 @@ begin
     variable mem_addr  : word_unsigned;
     variable mem_data  : word_unsigned;
     variable mem_write : std_logic;
+    variable mem_instr : unsigned(2 downto 0);
 
   begin
     take_branch := '0';
@@ -146,15 +148,19 @@ begin
     shamt := exec_instr(4 downto 0);
     offI  := exec_instr(31 downto 20);
     offS  := exec_instr(31 downto 25) & exec_instr(11 downto 7);
+    offSB := exec_instr(12) & exec_instr(7) & exec_instr(30 downto 25) & exec_instr(11 downto 8);
     immUJ := exec_instr(31) & exec_instr(19 downto 12) & exec_instr(20) & exec_instr(30 downto 21);
     immU  := exec_instr(31 downto 12);
 
+    mem_addr  := (others => '0');
+    mem_data  := (others => '0');
+    mem_instr := (others => '0');
     mem_write := '0';
 
     -- Check for stall also?
     if exec_instr \= NOP then
       if load_stall = '0' then
-        case? mem_instr(6 downto 0) is
+        case? exec_instr(6 downto 0) is
           when "0110111" =>             -- LUI
             reg_data3 <= to_unsigned(exec_instr(31 downto 12), 32);
 
@@ -171,7 +177,7 @@ begin
 
           -- Branch
           when "1100011" =>
-            case mem_instr(14 downto 12) is
+            case exec_instr(14 downto 12) is
               when "000" =>             -- BEQ
                 take_branch <= reg_data1 = reg_data2;
               when "001" =>             -- BNE
@@ -187,19 +193,27 @@ begin
               when others =>            -- Undefined...
                 take_branch := '0';
             end case;
+
           -- Load
           when "0000011" =>
-            case mem_instr(14 downto 12) is
-              when "000"  =>            -- LB
+            mem_instr := exec_instr(14 downto 12);
+
+            case exec_instr(14 downto 12) is
+              when "000" =>             -- LB
+
               when "001"  =>            -- LH
               when "010"  =>            -- LW
               when "100"  =>            -- LBU
               when "101"  =>            -- LHU
               when others =>            -- Undefined
             end case;
+
           -- Store
           when "0100011" =>
-            case mem_instr(14 downto 12) is
+            mem_instr := exec_instr(14 downto 12);
+            mem_write := '1';
+
+            case exec_instr(14 downto 12) is
               when "000"  =>            -- SB
               when "001"  =>            -- SH
               when "010"  =>            -- SW
@@ -208,29 +222,29 @@ begin
 
           -- Arith Imm
           when "0010011" =>
-            case mem_instr(14 downto 12) is
+            case exec_instr(14 downto 12) is
               when "000" =>                   -- ADDI
-                reg_data3 <= to_unsigned(signed(std_logic_vector(reg_data1)) + signed(std_logic_vector(reg_data1)));
+                reg_data3 <= unsigned(signed(std_logic_vector(reg_data1)) + signed(std_logic_vector(reg_data1)));
               when "001" =>                   -- SLLI
                 reg_data3 <= reg_data1 sll shamt;
               when "010" =>                   -- SLTI
-                reg_data3 <= to_unsigned(signed(std_logic_vector(reg_data1)) < imm11);
+                reg_data3 <= unsigned(signed(std_logic_vector(reg_data1)) < imm11);
               when "011" =>                   -- SLTIU
-                reg_data3 <= to_unsigned(reg_data1 < imm11);
+                reg_data3 <= unsigned(signed(std_logic_vector(reg_data1)) < imm11);
               when "100" =>                   -- XORI
-                reg_data3 <= to_unsigned(reg_data1 xor imm11);
+                reg_data3 <= unsigned(signed(std_logic_vector(reg_data1)) xor imm11);
               when "101" =>                   -- SRLI / SRAI
                 if exec_instr(30) = '0' then  -- SRLI
-                  reg_data3 <= to_unsigned(reg_data1 srl imm11);
+                  reg_data3 <= unsigned(signed(std_logic_vector(reg_data1)) srl imm11);
                 else                          -- SRAI
-                  reg_data3 <= to_unsigned(reg_data1 sla imm11);
+                  reg_data3 <= unsigned(signed(std_logic_vector(reg_data1)) sla imm11);
                 end if;
               when "111" =>                   -- ANDI
-                reg_data3 <= to_unsigned(reg_data and imm11);
+                reg_data3 <= unsigned(signed(std_logic_vector(reg_data1)) and imm11);
             end case;
                                               -- Arith Regs
           when "0110011" =>
-            case mem_instr(14 downto 12) is
+            case exec_instr(14 downto 12) is
               when "000" =>                   -- ADD / SUB
                 if exec_instr(30) = '0' then  -- ADD
                   reg_data3 <= reg_data1 + reg_data2;
@@ -240,7 +254,7 @@ begin
               when "001" =>                   -- SLL
                 reg_data3 <= reg_data1 sll to_integer(reg_data2);
               when "010" =>                   -- SLT
-                reg_data3 <= to_unsigned(signed(std_logic_vector(reg_data1)) < signed(std_logic_vector(reg_data2)));
+                reg_data3 <= unsigned(signed(std_logic_vector(reg_data1)) < signed(std_logic_vector(reg_data2)));
               when "011" =>                   -- SLTU
                 reg_data3 <= reg_data1 < reg_data2;
               when "100" =>                   -- XOR
@@ -258,26 +272,30 @@ begin
             end case;
                                               -- Arith Mult Regs
           when "0111011" =>
-            case mem_instr(14 downto 12) is
+            case exec_instr(14 downto 12) is
               when "000" =>                   -- MUL
-                reg_data3 <= to_unsigned((signed(std_logic_vector(reg_data1)) * signed(std_logic_vector(reg_data2)))(31 downto 0));
+                reg_data3 <= unsigned((signed(std_logic_vector(reg_data1)) * signed(std_logic_vector(reg_data2)))(31 downto 0));
               when "001" =>                   -- MULH
-                reg_data3 <= to_unsigned((signed(std_logic_vector(reg_data1)) * signed(std_logic_vector(reg_data2)))(63 downto 32));
+                reg_data3 <= unsigned((signed(std_logic_vector(reg_data1)) * signed(std_logic_vector(reg_data2)))(63 downto 32));
               when "010" =>                   -- MULHSU
-                reg_data3 <= to_unsigned((signed(std_logic_vector(reg_data1)) * reg_data2))(63 downto 32));
+                reg_data3 <= unsigned((signed(std_logic_vector(reg_data1)) * reg_data2))(63 downto 32));
               when "011" =>                   -- MULHU
                 reg_data3 <= (reg_data1 * reg_data2)(63 downto 32);
               when "100" =>                   -- DIV
-                reg_data3 <= to_unsigned(signed(std_logic_vector(reg_data1)) / signed(std_logic_vector(reg_data2)));
+                reg_data3 <= unsigned(signed(std_logic_vector(reg_data1)) / signed(std_logic_vector(reg_data2)));
               when "101" =>                   -- DIVU
                 reg_data3 <= reg_data1 / reg_data2;
               when "110" =>                   -- REM
               when "111" =>                   -- REMU
             end case;
         end case?;
+
+        -- If we're branching, let's do it.
+        if take_branch then
+          pc = pc + offSB;
+        end if;
       end if;
     end if;
   end process;
-
 
 end Sim_CPU;
