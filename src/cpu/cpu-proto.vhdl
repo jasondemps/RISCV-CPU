@@ -20,6 +20,7 @@ entity CPU is
     mem_data      : in  word_unsigned;
     mem_stall     : in  std_logic
     -- Branch Prediction Interface
+    pbranch_instr : out word_unsigned;
     pbranch_addr  : out word_unsigned;
     pbranch_value : in  word_unsigned
     );
