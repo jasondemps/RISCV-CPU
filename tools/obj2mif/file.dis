@@ -1,0 +1,15 @@
+
+main.o:     file format elf64-littleriscv
+
+
+Disassembly of section .text:
+
+0000000000000000 <main>:
+   0:	00000793          	li	a5,0
+   4:	01400713          	li	a4,20
+
+0000000000000008 <.L2>:
+   8:	0027879b          	addiw	a5,a5,2
+   c:	fee79ee3          	bne	a5,a4,8 <.L2>
+  10:	05a00513          	li	a0,90
+  14:	00008067          	ret
