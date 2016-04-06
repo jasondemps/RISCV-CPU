@@ -18,13 +18,42 @@ r = re.compile(pat)
 
 opcodes = []
 
+BinLen = 32
+
+def Format_Binary(s, maxLen):
+    padLen = maxLen - len(s)
+    return '0' * padLen + s;
+
 # TODO: Move this file opening to read from cmd line
 with open("./file.dis") as f:
     for line in f:
         regMatch = r.search(line)
         if regMatch:
-            print(regMatch.group(0))
-            opcodes.append((regMatch.group(0), bin(int(regMatch.group(0), 16))))
+            binVal = Format_Binary(bin(int(regMatch.group(0), 16))[2:], BinLen)
+            opcodes.append((regMatch.group(0), binVal))
 
-print(opcodes[1])
+print(opcodes)
+
+# Values for MIF
+#Depth = 32
+Depth = len(opcodes)
+Width = BinLen
+Addr_Radix = 0 # See Radix Table
+Data_Radix = 0
+
+# Radix Table
+Radix_Table = [ 'BIN', 'HEX', 'OCT', 'DEC' ]
+
+# Generate MIF
+with open("./file.mif", "w") as f:
+    # Header stuff
+    f.write('DEPTH = {0};\nWIDTH = {1};\nADDRESS_RADIX = {2};\nDATA_RADIX = {3};\nCONTENT\nBEGIN\n'.format(
+        str(Depth), str(Width), Radix_Table[Addr_Radix], Radix_Table[Data_Radix]))
+
+    # Format of pairs:
+    # addr : data
+    for idx, v in enumerate(opcodes):
+        f.write('{0} : {1};\n'.format(hex(idx), v[1]))
+
+    f.write('END;')
 
