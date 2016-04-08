@@ -52,6 +52,7 @@ with open("./file.mif", "w") as f:
 
     # Format of pairs:
     # addr : data
+    # TODO: Addr is form 0# in hex!
     for idx, v in enumerate(opcodes):
         f.write('{0} : {1};\n'.format(hex(idx), v[1]))
 
