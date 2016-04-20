@@ -1,0 +1,726 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/thehr/Documents/Modelsim Projects/CPURefactor
+Ebranch_predict
+Z0 w1460318299
+Z1 DPx4 work 8 declares 0 22 2SmhE6INXcBmHzz0<Cjm40
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z5 dC:/Users/thehr/Documents/Projects/RISCV/sim
+8C:/Users/thehr/Documents/Projects/RISCV/src/cpu/branch_predict.vhdl
+FC:/Users/thehr/Documents/Projects/RISCV/src/cpu/branch_predict.vhdl
+l0
+L7
+V_9iLB`L0iiJTWHI]L<ol50
+!s100 ]<XUA>8Ye2cV_j`DO0Wn23
+Z6 OV;C;10.3d;59
+33
+Z7 !s110 1460322958
+!i10b 1
+!s108 1460322958.209000
+!s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|-stats=none|C:/Users/thehr/Documents/Projects/RISCV/src/cpu/branch_predict.vhdl|
+!s107 C:/Users/thehr/Documents/Projects/RISCV/src/cpu/branch_predict.vhdl|
+!i113 1
+Z8 o-work work -2008 -explicit -check_synthesis
+Z9 tExplicit 1
+Ecache
+R0
+R2
+R3
+R4
+R5
+Z10 8C:/Users/thehr/Documents/Projects/RISCV/src/cpu/cache.vhdl
+Z11 FC:/Users/thehr/Documents/Projects/RISCV/src/cpu/cache.vhdl
+l0
+L5
+V4T^g?i:65n9k>_WLTa]:c3
+!s100 ONj@EQF<dK]ig:kEnzKGE3
+R6
+33
+R7
+!i10b 1
+Z12 !s108 1460322958.322000
+Z13 !s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|-stats=none|C:/Users/thehr/Documents/Projects/RISCV/src/cpu/cache.vhdl|
+Z14 !s107 C:/Users/thehr/Documents/Projects/RISCV/src/cpu/cache.vhdl|
+!i113 1
+R8
+R9
+Atwo_way_strat
+R2
+R3
+R4
+DEx4 work 5 cache 0 22 4T^g?i:65n9k>_WLTa]:c3
+l19
+L14
+VEARol@ZDYoQd6ORh8jPhQ0
+!s100 IHVKgDYLG[C`W`mh>ggfS0
+R6
+33
+R7
+!i10b 1
+R12
+R13
+R14
+!i113 1
+R8
+R9
+Ecpu
+w1460323174
+R1
+Z15 DPx8 synopsys 10 attributes 0 22 liCm]LV3<lX4Zl>o6^8IV1
+Z16 DPx4 ieee 14 std_logic_misc 0 22 BLzBaQbXS>Q1z>5YO]m[52
+R2
+R3
+R4
+R5
+8C:\Users\thehr\Documents\Projects\RISCV\src\cpu\cpu-proto.vhdl
+FC:\Users\thehr\Documents\Projects\RISCV\src\cpu\cpu-proto.vhdl
+l0
+L15
+V5`;5C_cHgS:86]9WU23Li2
+!s100 MNbYbn^[6_7nSW2fYN[KB1
+R6
+33
+!s110 1460323177
+!i10b 1
+!s108 1460323177.057000
+!s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|-stats=none|C:\Users\thehr\Documents\Projects\RISCV\src\cpu\cpu-proto.vhdl|
+!s107 C:\Users\thehr\Documents\Projects\RISCV\src\cpu\cpu-proto.vhdl|
+!i113 1
+R8
+R9
+Pdeclares
+R4
+R3
+R2
+w1460322568
+R5
+8C:/Users/thehr/Documents/Projects/RISCV/src/cpu/declares.vhdl
+FC:/Users/thehr/Documents/Projects/RISCV/src/cpu/declares.vhdl
+l0
+L5
+V2SmhE6INXcBmHzz0<Cjm40
+!s100 4oD2oR]XPWa8khe^5oN^l3
+R6
+33
+Z17 !s110 1460322959
+!i10b 1
+!s108 1460322959.031000
+!s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|-stats=none|C:/Users/thehr/Documents/Projects/RISCV/src/cpu/declares.vhdl|
+!s107 C:/Users/thehr/Documents/Projects/RISCV/src/cpu/declares.vhdl|
+!i113 1
+R8
+R9
+Edecode
+Z18 w1460342032
+Z19 DPx4 work 7 helpers 0 22 MGeS8eFHg;0F76YYbC=>D2
+R4
+R3
+R2
+R5
+Z20 8C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Decode.vhdl
+Z21 FC:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Decode.vhdl
+l0
+L7
+Vn2eenkz7S4N[R1QJ`abIH0
+!s100 ff:ID@J2NI7SMEh3XaIkY1
+R6
+33
+Z22 !s110 1460342227
+!i10b 1
+Z23 !s108 1460342227.307000
+Z24 !s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|-stats=none|C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Decode.vhdl|
+Z25 !s107 C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Decode.vhdl|
+!i113 1
+R8
+R9
+Adecode
+R19
+R4
+R3
+R2
+Z26 DEx4 work 6 decode 0 22 n2eenkz7S4N[R1QJ`abIH0
+l22
+L17
+V783igjQ8[R8N=RXFPnW^V0
+!s100 9gcW1i6F8zg]VL8F@ohb;0
+R6
+33
+R22
+!i10b 1
+R23
+R24
+R25
+!i113 1
+R8
+R9
+Edmem
+Z27 w1451359256
+R2
+R3
+R4
+R5
+Z28 8C:\Users\thehr\Documents\Projects\FPGA-RISCV\src\dmem.vhd
+Z29 FC:\Users\thehr\Documents\Projects\FPGA-RISCV\src\dmem.vhd
+l0
+L8
+V7hie[DGDDH>glhGIMV8LH3
+!s100 6ooCXU]G]2d[N4QhhjZ003
+R6
+33
+R22
+!i10b 1
+Z30 !s108 1460342227.832000
+Z31 !s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|-stats=none|C:\Users\thehr\Documents\Projects\FPGA-RISCV\src\dmem.vhd|
+Z32 !s107 C:\Users\thehr\Documents\Projects\FPGA-RISCV\src\dmem.vhd|
+!i113 1
+R8
+R9
+Admem
+R2
+R3
+R4
+Z33 DEx4 work 4 dmem 0 22 7hie[DGDDH>glhGIMV8LH3
+l20
+L18
+VVlF:JcGZ4>5Hf15c=Y0lb0
+!s100 JkBUPMi<dUV1Vm5e2TC:S1
+R6
+33
+R22
+!i10b 1
+R30
+R31
+R32
+!i113 1
+R8
+R9
+Eexecute
+Z34 w1460341848
+R1
+R15
+R16
+R4
+R3
+R2
+R5
+Z35 8C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Execute.vhdl
+Z36 FC:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Execute.vhdl
+l0
+L10
+Vo6KzebEmb2b?cBB5TY]hV2
+!s100 PkzChH>1AX3Elea>[QQ0W3
+R6
+33
+Z37 !s110 1460342228
+!i10b 1
+Z38 !s108 1460342228.381000
+Z39 !s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|-stats=none|C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Execute.vhdl|
+Z40 !s107 C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Execute.vhdl|
+!i113 1
+R8
+R9
+Aexecute
+R1
+R15
+R16
+R4
+R3
+R2
+Z41 DEx4 work 7 execute 0 22 o6KzebEmb2b?cBB5TY]hV2
+l43
+L29
+VJDY:K7lE?lX5l4P7i^;LX3
+!s100 J40?3XPE8bS0HL:TMAKFc0
+R6
+33
+R37
+!i10b 1
+R38
+R39
+R40
+!i113 1
+R8
+R9
+Efetch
+Z42 w1460341781
+R19
+R2
+R3
+R4
+R5
+Z43 8C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Fetch.vhdl
+Z44 FC:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Fetch.vhdl
+l0
+L7
+VHz<8PdT5KGZQ_;2d?71eY2
+!s100 fN>=I;iMDHZ5i?::LDE^B2
+R6
+33
+Z45 !s110 1460342229
+!i10b 1
+Z46 !s108 1460342229.029000
+Z47 !s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|-stats=none|C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Fetch.vhdl|
+Z48 !s107 C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Fetch.vhdl|
+!i113 1
+R8
+R9
+Afetch
+R19
+R2
+R3
+R4
+Z49 DEx4 work 5 fetch 0 22 Hz<8PdT5KGZQ_;2d?71eY2
+l43
+L18
+VFg<oJXhAT4V0m<3^aJ2LQ2
+!s100 XnOdozPAb7c=>8`m`VY0Q0
+R6
+33
+R45
+!i10b 1
+R46
+R47
+R48
+!i113 1
+R8
+R9
+Phelpers
+R4
+R3
+R2
+Z50 w1451415833
+R5
+Z51 8C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/helpers.vhdl
+Z52 FC:/Users/thehr/Documents/Projects/FPGA-RISCV/src/helpers.vhdl
+l0
+L5
+VMGeS8eFHg;0F76YYbC=>D2
+!s100 F5ee0GRkg5C?6K6GF]D473
+R6
+33
+b1
+R45
+!i10b 1
+Z53 !s108 1460342229.612000
+Z54 !s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|-stats=none|C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/helpers.vhdl|
+Z55 !s107 C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/helpers.vhdl|
+!i113 1
+R8
+R9
+Bbody
+R19
+R4
+R3
+R2
+l0
+L21
+V^8]<;be_290mgBGhi[<Ki2
+!s100 TRJ;6?Ma^7`>DEae9CSbV0
+R6
+33
+R45
+!i10b 1
+R53
+R54
+R55
+!i113 1
+R8
+R9
+Z56 nbody
+Ehexdecoder
+R27
+R2
+R3
+R4
+R5
+Z57 8C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/hex-decoder.vhdl
+Z58 FC:/Users/thehr/Documents/Projects/FPGA-RISCV/src/hex-decoder.vhdl
+l0
+L5
+Vz]8A81l@LL>J<4U_71Io;0
+!s100 z1c@lXHnR`a<_`_clR0bi0
+R6
+33
+R45
+!i10b 1
+Z59 !s108 1460342229.762000
+Z60 !s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|-stats=none|C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/hex-decoder.vhdl|
+Z61 !s107 C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/hex-decoder.vhdl|
+!i113 1
+R8
+R9
+Ahexdec_arch
+R2
+R3
+R4
+DEx4 work 10 hexdecoder 0 22 z]8A81l@LL>J<4U_71Io;0
+l14
+L12
+V0n05lAKA_Gi^;o2QSbW]S1
+!s100 d[JOQTBQFLXfF393C]9kU3
+R6
+33
+R45
+!i10b 1
+R59
+R60
+R61
+!i113 1
+R8
+R9
+Eimem
+Z62 w1460412101
+R2
+R3
+R4
+R5
+Z63 8C:\Users\thehr\Documents\Projects\FPGA-RISCV\src\imem.vhd
+Z64 FC:\Users\thehr\Documents\Projects\FPGA-RISCV\src\imem.vhd
+l0
+L8
+VRBi0DN9fTkz2h89<AajhM2
+!s100 :I_T<Vn<J`VSeYh:@^3aK1
+R6
+33
+Z65 !s110 1460412104
+!i10b 1
+Z66 !s108 1460412104.321000
+Z67 !s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|-stats=none|C:\Users\thehr\Documents\Projects\FPGA-RISCV\src\imem.vhd|
+Z68 !s107 C:\Users\thehr\Documents\Projects\FPGA-RISCV\src\imem.vhd|
+!i113 1
+R8
+R9
+Aimem
+R2
+R3
+R4
+Z69 DEx4 work 4 imem 0 22 RBi0DN9fTkz2h89<AajhM2
+l19
+L14
+VX>9b:Tj?8iVgWczkAaMY31
+!s100 J[bcZ0W^GhfaPBzRaA[?a1
+R6
+33
+R65
+!i10b 1
+R66
+R67
+R68
+!i113 1
+R8
+R9
+Pinstr_set
+R1
+R4
+R3
+R2
+Z70 w1455324579
+R5
+Z71 8C:\Users\thehr\Documents\Projects\RISCV\src\cpu\instrset.vhdl
+Z72 FC:\Users\thehr\Documents\Projects\RISCV\src\cpu\instrset.vhdl
+l0
+L7
+VEcPcf?;RW`cCL=QCkeOi41
+!s100 fUW@Xm_E:k>JWRENSQRRP1
+R6
+33
+R17
+!i10b 1
+Z73 !s108 1460322959.652000
+Z74 !s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|-stats=none|C:\Users\thehr\Documents\Projects\RISCV\src\cpu\instrset.vhdl|
+Z75 !s107 C:\Users\thehr\Documents\Projects\RISCV\src\cpu\instrset.vhdl|
+!i113 1
+R8
+R9
+Bbody
+DPx4 work 9 instr_set 0 22 EcPcf?;RW`cCL=QCkeOi41
+R1
+R4
+R3
+R2
+l0
+L11
+V;6KSm@bJR2D5?n^bHYDN;3
+!s100 9fZP:mUdK_F9anR@CU_KS3
+R6
+33
+R17
+!i10b 1
+R73
+R74
+R75
+!i113 1
+R8
+R9
+R56
+Einterceptor
+Z76 w1451418046
+R19
+R4
+R3
+R2
+R5
+Z77 8C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Interceptor.vhdl
+Z78 FC:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Interceptor.vhdl
+l0
+L7
+VCUVoWYTJ94df[?S<49g9=2
+!s100 OmkW>fG5@;z5>n^91H[=F2
+R6
+33
+Z79 !s110 1460342230
+!i10b 1
+Z80 !s108 1460342230.855000
+Z81 !s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|-stats=none|C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Interceptor.vhdl|
+Z82 !s107 C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Interceptor.vhdl|
+!i113 1
+R8
+R9
+Ainterceptor
+R19
+R4
+R3
+R2
+DEx4 work 11 interceptor 0 22 CUVoWYTJ94df[?S<49g9=2
+l23
+L21
+VgNjV<Hoib_>>h^;YLGlkV3
+!s100 MzRYU0G99Rbz7OU3[O5N41
+R6
+33
+R79
+!i10b 1
+R80
+R81
+R82
+!i113 1
+R8
+R9
+Ememory
+R0
+R2
+R3
+R4
+R5
+Z83 8C:/Users/thehr/Documents/Projects/RISCV/src/cpu/memory.vhdl
+Z84 FC:/Users/thehr/Documents/Projects/RISCV/src/cpu/memory.vhdl
+l0
+L8
+V=h[8QJIN1<fabgMc[OO`]1
+!s100 @^QQ?naLH__7n:B[^U0MT2
+R6
+33
+R17
+!i10b 1
+Z85 !s108 1460322959.789000
+Z86 !s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|-stats=none|C:/Users/thehr/Documents/Projects/RISCV/src/cpu/memory.vhdl|
+Z87 !s107 C:/Users/thehr/Documents/Projects/RISCV/src/cpu/memory.vhdl|
+!i113 1
+R8
+R9
+Amemory_test
+R2
+R3
+R4
+DEx4 work 6 memory 0 22 =h[8QJIN1<fabgMc[OO`]1
+l16
+L14
+VJb2kLMG4oG<NNHlf^F3T_2
+!s100 j@D7ShYkn=<ZNBG:Dkaj53
+R6
+33
+R17
+!i10b 1
+R85
+R86
+R87
+!i113 1
+R8
+R9
+Epipeline
+Z88 w1460342012
+R4
+R3
+R2
+R5
+Z89 8C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Pipeline.vhdl
+Z90 FC:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Pipeline.vhdl
+l0
+L5
+V^LQoNf2nISN=cR?mAkRXR0
+!s100 P=RO6n:J4e40D[c>zL]F91
+R6
+33
+Z91 !s110 1460342231
+!i10b 1
+Z92 !s108 1460342231.424000
+Z93 !s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|-stats=none|C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Pipeline.vhdl|
+Z94 !s107 C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Pipeline.vhdl|
+!i113 1
+R8
+R9
+Apipeline
+Z95 DEx4 work 5 store 0 22 8IHDkn>C:nA[JW5Th<]Fa0
+R1
+R15
+R16
+R41
+R26
+R19
+R49
+R4
+R3
+R2
+Z96 DEx4 work 8 pipeline 0 22 ^LQoNf2nISN=cR?mAkRXR0
+l88
+L24
+VUK[<1c=V:^HJdVcB]eR^g1
+!s100 nAU9K7KD21cVG^N`SX>hF0
+R6
+33
+R91
+!i10b 1
+R92
+R93
+R94
+!i113 1
+R8
+R9
+Erfile
+Z97 w1460336587
+R2
+R3
+R4
+R5
+Z98 8C:\Users\thehr\Documents\Projects\FPGA-RISCV\src\rfile.vhd
+Z99 FC:\Users\thehr\Documents\Projects\FPGA-RISCV\src\rfile.vhd
+l0
+L15
+V]Z7H[A0006CB^5OJMAZRB0
+!s100 `B0GYVbaPdRjD0cbTNP8a1
+R6
+33
+Z100 !s110 1460342232
+!i10b 1
+Z101 !s108 1460342232.120000
+Z102 !s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|-stats=none|C:\Users\thehr\Documents\Projects\FPGA-RISCV\src\rfile.vhd|
+Z103 !s107 C:\Users\thehr\Documents\Projects\FPGA-RISCV\src\rfile.vhd|
+!i113 1
+R8
+R9
+Arfile
+R2
+R3
+R4
+Z104 DEx4 work 5 rfile 0 22 ]Z7H[A0006CB^5OJMAZRB0
+l29
+L23
+VV5LHzIoT@L49;?oQQgPGl0
+!s100 6IU<25Z@8>;2Tio=2B=5l3
+R6
+33
+R100
+!i10b 1
+R101
+R102
+R103
+!i113 1
+R8
+R9
+Estore
+Z105 w1460342053
+R19
+R4
+R3
+R2
+R5
+Z106 8C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Store.vhdl
+Z107 FC:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Store.vhdl
+l0
+L7
+V8IHDkn>C:nA[JW5Th<]Fa0
+!s100 JH`W^5_JWk8l[=lMLIb3l0
+R6
+33
+R100
+!i10b 1
+Z108 !s108 1460342232.673000
+Z109 !s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|-stats=none|C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Store.vhdl|
+Z110 !s107 C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Store.vhdl|
+!i113 1
+R8
+R9
+Astore
+R19
+R4
+R3
+R2
+R95
+l22
+L18
+Vd5RkDzUjTBg4`SSX;Q<NH3
+!s100 L_C[G=V:6CazKnc]6I68Z2
+R6
+33
+R100
+!i10b 1
+R108
+R109
+R110
+!i113 1
+R8
+R9
+Etop
+Z111 w1460342201
+R2
+R3
+R4
+R5
+Z112 8C:\Users\thehr\Documents\Projects\FPGA-RISCV\src\top.vhd
+Z113 FC:\Users\thehr\Documents\Projects\FPGA-RISCV\src\top.vhd
+l0
+L5
+V:B64Q]535<:;nWVaJzC^Y0
+!s100 38O8PG?]oZ[Ol_<f1UNiK2
+R6
+33
+Z114 !s110 1460342244
+!i10b 1
+Z115 !s108 1460342244.674000
+Z116 !s90 -reportprogress|300|-work|work|-2008|-explicit|-check_synthesis|-stats=none|C:\Users\thehr\Documents\Projects\FPGA-RISCV\src\top.vhd|
+Z117 !s107 C:\Users\thehr\Documents\Projects\FPGA-RISCV\src\top.vhd|
+!i113 1
+R8
+R9
+Atop
+R104
+R69
+R33
+R96
+R2
+R3
+R4
+DEx4 work 3 top 0 22 :B64Q]535<:;nWVaJzC^Y0
+l57
+L8
+VXm:a^k6J?Ug><BH66^gE30
+!s100 zaWFNY;@ZlMgbBc7kEUjd3
+R6
+33
+R114
+!i10b 1
+R115
+R116
+R117
+!i113 1
+R8
+R9

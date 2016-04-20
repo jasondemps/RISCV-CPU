@@ -1,19 +1,27 @@
 Abstract:
-  Field Programmable Gate Arrays (FPGAs) are rapidly becoming the de-facto development platform for hardware and ASIC designs. Specifically, designs in computer architecture such as microprocessors may be rapidly created, iterated upon, and verified without the need of interacting with hardware until the final stages of the development cycle. This project is an open microprocessor platform using the RISC-V Instruction Set Architecture (ISA). 
+  Field Programmable Gate Arrays (FPGAs) are rapidly becoming the de-facto development platform for hardware and ASIC designs. Specifically, designs in computer architecture such as microprocessors may be rapidly created, iterated upon, and verified without the need of interacting with hardware until the final stages of the development cycle. This project is an open microprocessor platform using the RISC-V Instruction Set Architecture (ISA). Utilizing the Low Level Virtual Machine (LLVM), C programs compiled in the Clang compiler may be ran on this microprocessor implementation.
 
 
 
 Design:
+  This CPU is a 4 stage pipelined, Harvard architecture, RISC CPU. The instruction set for this processor implementation is the RISC-V ISA, which may be broken down into distinct categories.
+       ALU operations which perform arithmetic such as ADD and SUB. Shifting operations such as left or right logical or arithmetic shifts. Bitwise operations including AND, OR, and XOR.
+       Branching operations which may modify the program counter's value and subsequently affects the pipeline as a whole.
+       Load operations are responsible for loading a register with a value from data memory. To properly load the register with the correct value, a stall cycle must be introduced.
+       Store operations write values from a register to data memory. This incurs a penalty of an additional pipeline stage.
+
+It adheres to the RISC-V ISA guidelines in that it consists of 32 registers, each being 4 bytes in width (also referred to as 'Word' size). It should be noted that the RISC-V ISA standards classify separate extensions to the complete set. This CPU adheres to the base set as well as the multiplication (M) extension. Currently, 512 locations are writable within the data memory section, allowing for both read and write operations to take place.
+  
 
 
 Verification:
-
+The design of the pipelined CPU was verified in the HDL simulator, ModelSim. Through ModelSim, the entire design may be evaluated and checked for error at runtime. This allows for quick iteration over designs and to easily spot potential showstoppers.
 
 
 Discussion:
 
 
 Conclusions:
-
+This project was 
 
 Poster Size: 27x40 inches

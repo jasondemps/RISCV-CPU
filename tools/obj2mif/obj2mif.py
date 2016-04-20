@@ -13,7 +13,7 @@ import re # We REGEX'n
 import binascii
 
 #pat = '\s+[0-9]?\s[0-9]?'
-pat = '[0-9A-Fa-f]{8}'
+pat = '[0-9A-Fa-f]{8}' # Only grab Hex values
 r = re.compile(pat)
 
 opcodes = []
@@ -38,7 +38,7 @@ print(opcodes)
 #Depth = 32
 Depth = len(opcodes)
 Width = BinLen
-Addr_Radix = 0 # See Radix Table
+Addr_Radix = 1 # See Radix Table
 Data_Radix = 0
 
 # Radix Table

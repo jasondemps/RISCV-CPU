@@ -1,0 +1,52 @@
+C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/dmem.vhd {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none {C:\Users\thehr\Documents\Projects\FPGA-RISCV\src\dmem.vhd}
+Model Technology ModelSim ALTERA vcom 10.3d Compiler 2014.10 Oct  7 2014
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity dmem
+-- Compiling architecture dmem of dmem
+
+} {} {}} C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Interceptor.vhdl {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Interceptor.vhdl
+Model Technology ModelSim ALTERA vcom 10.3d Compiler 2014.10 Oct  7 2014
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package helpers
+-- Compiling entity Interceptor
+-- Compiling architecture Interceptor of Interceptor
+
+} {} {}} C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/hex-decoder.vhdl {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/hex-decoder.vhdl
+Model Technology ModelSim ALTERA vcom 10.3d Compiler 2014.10 Oct  7 2014
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity HexDecoder
+-- Compiling architecture HexDec_Arch of HexDecoder
+
+} {} {}} C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/top.vhd {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none {C:\Users\thehr\Documents\Projects\FPGA-RISCV\src\top.vhd}
+Model Technology ModelSim ALTERA vcom 10.3d Compiler 2014.10 Oct  7 2014
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity top
+-- Compiling architecture top of top
+-- Loading entity Pipeline
+-- Loading entity dmem
+-- Loading entity imem
+-- Loading entity rfile
+
+} {} {}} C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Fetch.vhdl {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Fetch.vhdl
+Model Technology ModelSim ALTERA vcom 10.3d Compiler 2014.10 Oct  7 2014
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package helpers
+-- Compiling entity Fetch
+-- Compiling architecture Fetch of Fetch
+
+} {} {}}

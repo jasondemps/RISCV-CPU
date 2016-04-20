@@ -4,8 +4,8 @@ use ieee.numeric_std.all;
 use ieee.std_logic_misc.all;
 
 use work.declares.all;
-use work.Utility.all;
-use work.instrset.all;
+-- use work.Utility.all;
+-- use work.instrset.all;
 
 -- Try to keep a generic interface for interacting with the cache/memory mechanism
 -- I'll probably have an external memory controller on the outside to
@@ -18,7 +18,7 @@ entity CPU is
     -- Memory Interface
     mem_addr      : out word_unsigned;
     mem_data      : in  word_unsigned;
-    mem_stall     : in  std_logic
+    mem_stall     : in  std_logic;
     -- Branch Prediction Interface
     pbranch_instr : out word_unsigned;
     pbranch_addr  : out word_unsigned;
@@ -27,7 +27,7 @@ entity CPU is
 end CPU;
 
 architecture Sim_CPU of CPU is
-  signal pc     : word_unsigned := (others => "0");
+  signal pc     : word_unsigned := to_unsigned(0, word);
   signal pc_val : word_unsigned;
 
   -- Branch Signals
@@ -36,7 +36,7 @@ architecture Sim_CPU of CPU is
   signal branch_mux   : word_unsigned;
   signal branch_cntrl : std_logic;
 
-  signal mem_addr  : word_unsigned;
+  --signal mem_addr  : word_unsigned;
   signal mem_instr : word_unsigned;
 
   signal pc_incr : word_unsigned;
@@ -53,13 +53,13 @@ architecture Sim_CPU of CPU is
 begin
 
   -- FETCH
-  branch_cntrl <= or_reduce(pred_branch);
+  branch_cntrl <= or_reduce(std_logic_vector(pbranch_value)); --pred_branch);
 
-  with branch_ctrl select branch_mux <=
+  with branch_cntrl select branch_mux <=
     pbranch_value when '0',
     branch_target when '1';
 
-  with or_reduce(branch_mux) select pc_val <=
+  with or_reduce(std_logic_vector(branch_mux)) select pc_val <=
     pc_incr    when '0',
     branch_mux when '1';
 
@@ -90,7 +90,7 @@ begin
       -- Load
       when "0000011" =>
         -- Stall?
-        load_stall <= 1;
+        load_stall <= to_unsigned(1, load_stall'length);
 
       -- Store
       when "0100011" =>
