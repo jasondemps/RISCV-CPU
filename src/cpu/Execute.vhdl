@@ -27,15 +27,6 @@ entity Execute is
 end Execute;
 
 architecture Execute of Execute is
-  -- signal Ztmp, Ctmp, Vtmp, Ntmp : std_logic;
-
-  --signal wadr_tmp       : unsigned(3 downto 0);
-  --signal wdata_tmp      : unsigned(31 downto 0);
-  --signal rf_wr_tmp      : std_logic;
-  --signal dm_addr_tmp    : unsigned(31 downto 2);
-  --signal dm_data_wr_tmp : unsigned(31 downto 0);
-  --signal dm_we_tmp      : std_logic;
-  --signal defer_tmp      : std_logic;
   signal pc_tmp : signed(31 downto 0);
 
   attribute multstyle            : string;
@@ -94,7 +85,7 @@ begin
     dm_data_wr <= (others => '0');
     dm_we      <= '0';
 
-    pc_tmp <= (others => '0'); --pc;
+    pc_tmp <= (others => '0');          --pc;
 
     -- Check for stall also?
     if instr /= NOP then
@@ -139,16 +130,12 @@ begin
 
           -- Load
           when "0000011" =>
-			   
-				
-
             case instr(14 downto 12) is
               when "000" | "001" | "010" | "100" | "101" =>
-					 dm_addr    <= to_unsigned(to_integer(to_signed(to_integer(instr(19 downto 15)), instr(19 downto 15)'length) + imm12), dm_addr'length);
-					 dm_we      <= '0';
-					 dm_data_wr <= resize(rd, dm_data_wr'length);
- 
-					 defer_load <= '1';
+                dm_addr    <= to_unsigned(to_integer(to_signed(to_integer(instr(19 downto 15)), instr(19 downto 15)'length) + imm12), dm_addr'length);
+                dm_we      <= '0';
+                dm_data_wr <= resize(rd, dm_data_wr'length);
+                defer_load <= '1';
               when others =>            -- Undefined
             end case;
 
@@ -158,17 +145,18 @@ begin
               when "000" | "001" | "010" =>  -- SB / SH / SW
                 dm_addr    <= resize(instr(19 downto 15) + offS, dm_addr'length);  --resize(reg_data2 + reg_data3, dm_addr'length);
                 dm_we      <= '1';
-                dm_data_wr <= reg_data2; 
+                dm_data_wr <= reg_data2;
               when others =>            -- Undefined
             end case;
 
           -- Arith Imm
           when "0010011" =>
             wadr <= rd;
+            rf_wr <= '1';
 
             case instr(14 downto 12) is
               when "000" =>              -- ADDI
-                wdata <= unsigned(signed(std_logic_vector(reg_data1)) + signed(std_logic_vector(reg_data1)));
+                wdata <= unsigned(signed(std_logic_vector(reg_data1)) + imm12);
               when "001" =>              -- SLLI
                 wdata <= reg_data1 sll to_integer(shamt);
               when "010" =>              -- SLTI
@@ -195,9 +183,11 @@ begin
                 wdata <= unsigned(signed(std_logic_vector(reg_data1)) and imm12);
               when others =>
             end case;
-                                         -- Arith Regs
+
+          -- Arith Regs
           when "0110011" =>
             wadr <= rd;
+            rf_wr <= '1';
 
             case instr(14 downto 12) is
               when "000" =>              -- ADD / SUB
@@ -240,6 +230,8 @@ begin
             end case;
                                         -- Arith Mult Regs
           when "0111011" =>
+            rf_wr <= '1';
+
             case instr(14 downto 12) is
               when "000" =>             -- MUL
                 wdata <= unsigned(signed(std_logic_vector(reg_data1(15 downto 0))) * signed(std_logic_vector(reg_data2(15 downto 0))));
@@ -273,7 +265,7 @@ begin
 
   process (pc_tmp)
   begin
-    pc_out <= pc_tmp; --to_unsigned(to_integer(pc_tmp), pc_tmp'length);
+    pc_out <= pc_tmp;  --to_unsigned(to_integer(pc_tmp), pc_tmp'length);
   end process;
 
 end Execute;

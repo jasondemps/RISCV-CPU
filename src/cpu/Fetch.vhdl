@@ -8,7 +8,7 @@ entity Fetch is
   port(
     clock        : in     std_logic;
     -- take_branch : in 
-    branch_value : in     signed(31 downto 0); --signed(11 downto 1);
+    branch_value : in     signed(31 downto 0);  --signed(11 downto 1);
     stall        : in     std_logic;
     im_addr      : buffer unsigned(31 downto 0);
     pc           : buffer unsigned(31 downto 0) := (others => '0')
@@ -39,11 +39,15 @@ architecture Fetch of Fetch is
   --  pc_incr <= pc + 4;
   --end process;
 
-   signal pc_tmp : unsigned(31 downto 0) := (others => '0');
+   --signal pc_tmp : unsigned(31 downto 0) := (others => '0');
 begin
   -- pc <= pc_tmp;
 
   --im_addr <= unsigned(signed(pc) + branch_value);
+  -- with stall select im_addr <=
+  --   unsigned(signed(pc) + branch_value) when '0',
+  --   unsigned(signed(pc))                when others;
+
   with stall select im_addr <=
     unsigned(signed(pc) + branch_value) when '0',
     unsigned(signed(pc))                when others;
@@ -53,11 +57,17 @@ begin
   process(clock)
   begin
     if rising_edge(clock) then
-      pc <= im_addr;
+      pc <= pc + 2;
+      --pc <= im_addr;
+
     --if stall = '0' then
     --  pc_tmp <= unsigned(signed(pc_tmp) + branch_value);
     --end if;
     end if;
+
+    -- if falling_edge(clock) then
+    --   im_addr <= unsigned(im_addr + 4);
+    -- end if;
   end process;
 
 end Fetch;

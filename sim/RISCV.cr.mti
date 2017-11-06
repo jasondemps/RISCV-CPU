@@ -1,11 +1,38 @@
-C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/dmem.vhd {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none {C:\Users\thehr\Documents\Projects\FPGA-RISCV\src\dmem.vhd}
-Model Technology ModelSim ALTERA vcom 10.3d Compiler 2014.10 Oct  7 2014
+/home/hrr4/Projects/RISCV-CPU/src/cpu/Store.vhdl {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none /home/hrr4/Projects/RISCV-CPU/src/cpu/Store.vhdl
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity dmem
--- Compiling architecture dmem of dmem
+-- Loading package helpers
+-- Compiling entity Store
+-- Compiling architecture Store of Store
+
+} {} {}} /home/hrr4/Projects/RISCV-CPU/src/cpu/Pipeline.vhdl {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none /home/hrr4/Projects/RISCV-CPU/src/cpu/Pipeline.vhdl
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity Pipeline
+-- Compiling architecture Pipeline of Pipeline
+-- Loading package helpers
+-- Loading entity Fetch
+-- Loading entity Decode
+-- Loading package ATTRIBUTES
+-- Loading package std_logic_misc
+-- Loading package declares
+-- Loading entity Execute
+-- Loading entity Store
+
+} {} {}} /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity rfile
+-- Compiling architecture rfile of rfile
 
 } {} {}} C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Interceptor.vhdl {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Interceptor.vhdl
 Model Technology ModelSim ALTERA vcom 10.3d Compiler 2014.10 Oct  7 2014
@@ -17,6 +44,15 @@ Model Technology ModelSim ALTERA vcom 10.3d Compiler 2014.10 Oct  7 2014
 -- Compiling entity Interceptor
 -- Compiling architecture Interceptor of Interceptor
 
+} {} {}} C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/dmem.vhd {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none {C:\Users\thehr\Documents\Projects\FPGA-RISCV\src\dmem.vhd}
+Model Technology ModelSim ALTERA vcom 10.3d Compiler 2014.10 Oct  7 2014
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity dmem
+-- Compiling architecture dmem of dmem
+
 } {} {}} C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/hex-decoder.vhdl {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/hex-decoder.vhdl
 Model Technology ModelSim ALTERA vcom 10.3d Compiler 2014.10 Oct  7 2014
 -- Loading package STANDARD
@@ -25,6 +61,68 @@ Model Technology ModelSim ALTERA vcom 10.3d Compiler 2014.10 Oct  7 2014
 -- Loading package NUMERIC_STD
 -- Compiling entity HexDecoder
 -- Compiling architecture HexDec_Arch of HexDecoder
+
+} {} {}} /home/hrr4/Projects/RISCV-CPU/src/cpu/Fetch.vhdl {1 {vcom -work work -2008 -explicit -check_synthesis -source -stats=none /home/hrr4/Projects/RISCV-CPU/src/cpu/Fetch.vhdl
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package helpers
+-- Compiling entity Fetch
+-- Compiling architecture Fetch of Fetch
+
+} {} {}} /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl {2 {vcom -work work -2008 -explicit -check_synthesis -stats=none /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package helpers
+-- Compiling entity Decode
+-- Compiling architecture Decode of Decode
+** Warning: /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl(84): (vcom-1272) Length of expected is 32; length of actual is 16.
+
+} {} {}} /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity imem
+-- Compiling architecture imem of imem
+
+} {} {}} /home/hrr4/Projects/RISCV-CPU/src/cpu/top.vhd {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none /home/hrr4/Projects/RISCV-CPU/src/cpu/top.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity top
+-- Compiling architecture top of top
+-- Loading entity Pipeline
+-- Loading entity dmem
+-- Loading entity imem
+-- Loading entity rfile
+
+} {} {}} /home/hrr4/Projects/RISCV-CPU/src/cpu/Interceptor.vhdl {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none /home/hrr4/Projects/RISCV-CPU/src/cpu/Interceptor.vhdl
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package helpers
+-- Compiling entity Interceptor
+-- Compiling architecture Interceptor of Interceptor
+
+} {} {}} /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity dmem
+-- Compiling architecture dmem of dmem
 
 } {} {}} C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/top.vhd {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none {C:\Users\thehr\Documents\Projects\FPGA-RISCV\src\top.vhd}
 Model Technology ModelSim ALTERA vcom 10.3d Compiler 2014.10 Oct  7 2014
@@ -38,6 +136,42 @@ Model Technology ModelSim ALTERA vcom 10.3d Compiler 2014.10 Oct  7 2014
 -- Loading entity dmem
 -- Loading entity imem
 -- Loading entity rfile
+
+} {} {}} /home/hrr4/Projects/RISCV-CPU/src/cpu/hex-decoder.vhdl {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none /home/hrr4/Projects/RISCV-CPU/src/cpu/hex-decoder.vhdl
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity HexDecoder
+-- Compiling architecture HexDec_Arch of HexDecoder
+
+} {} {}} /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl {2 {vcom -work work -2008 -explicit -check_synthesis -stats=none /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Loading package ATTRIBUTES
+-- Loading package std_logic_misc
+-- Loading package declares
+-- Compiling entity Execute
+-- Compiling architecture Execute of Execute
+** Warning: /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl(110): (vcom-1275) Arguments of overloaded "and" operator are not the same length (32 vs. 20).
+** Warning: /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl(175): (vcom-1275) Arguments of overloaded "xor" operator are not the same length (32 vs. 12).
+** Warning: /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl(183): (vcom-1275) Arguments of overloaded "and" operator are not the same length (32 vs. 12).
+** Warning: /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl(259): (vcom-1400) Synthesis Warning: Signal "take_branch" is read in the process but is not in the sensitivity list.
+** Warning: /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl(38): (vcom-1401) Synthesis Warning: Signal "reg_data3" is in the sensitivity list but is not read in the process.
+
+} {} {}} /home/hrr4/Projects/RISCV-CPU/src/cpu/helpers.vhdl {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none /home/hrr4/Projects/RISCV-CPU/src/cpu/helpers.vhdl
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling package helpers
+-- Compiling package body helpers
+-- Loading package helpers
 
 } {} {}} C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Fetch.vhdl {1 {vcom -work work -2008 -explicit -check_synthesis -stats=none C:/Users/thehr/Documents/Projects/FPGA-RISCV/src/Fetch.vhdl
 Model Technology ModelSim ALTERA vcom 10.3d Compiler 2014.10 Oct  7 2014

@@ -3,7 +3,7 @@ use ieee.numeric_std.all;
 use ieee.std_logic_1164.all;
 
 use work.helpers.all;
-use work.declares.all;
+--use work.declares.all;
 
 entity Decode is
   port(

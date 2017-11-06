@@ -47,7 +47,7 @@ architecture top of top is
   signal dm_data_wr                    : unsigned(31 downto 0);
   signal dm_data_rd                    : unsigned(31 downto 0);
   signal dm_we                         : std_logic;
-  signal radr1, radr2, radr3, wadr     : unsigned(3 downto 0);
+  signal radr1, radr2, radr3, wadr     : unsigned(4 downto 0);
   signal wdata, rdata1, rdata2, rdata3 : unsigned(31 downto 0);
   signal rf_wr                         : std_logic;
   signal clock                         : std_logic := '1';

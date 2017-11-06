@@ -9,8 +9,8 @@ NAME=`echo "$1" | awk -F "." '{print $FNR}'`
 
 # Make things here
 # NEW WAYYYY
-riscv-clang -cc1 $NAME.c -emit-llvm
-riscv-llc -mtriple=riscv $NAME.ll
+#riscv-clang -cc1 $NAME.c -emit-llvm
+#riscv-llc -mtriple=riscv $NAME.ll
 
 
 #clang-riscv -target riscv -mriscv=RV64IM -S $NAME.c -o $NAME.S
@@ -18,8 +18,11 @@ riscv-llc -mtriple=riscv $NAME.ll
 # riscv64-unknown-elf-gcc -o $NAME.riscv $NAME.S
 
 # # Lets dump a .o and objdump for the raw assembly
-# riscv64-unknown-elf-gcc -c -O $NAME.c
-# riscv64-unknown-elf-objcopy -O binary $NAME.o $NAME.bin
+riscv64-unknown-linux-gnu-gcc -march=rv32g -mabi=ilp32d -c $NAME.c -o $NAME.o
+riscv64-unknown-linux-gnu-objcopy -O binary $NAME.o $NAME.bin
 
 # # We'll echo this for now...
-# riscv64-unknown-elf-objdump -d $NAME.o
+riscv64-unknown-linux-gnu-objdump -d $NAME.o >> $NAME.dis
+
+# Generate the .hex file to use in Modelsim
+#srec_cat $NAME.bin -Binary -o $NAME.hex -Intel -address-length=2 -Output_Block_Size=1

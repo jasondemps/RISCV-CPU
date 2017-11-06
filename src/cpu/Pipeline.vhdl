@@ -22,57 +22,9 @@ entity Pipeline is
 end Pipeline;
 
 architecture Pipeline of Pipeline is
-  -- COMPONENTS --
-  --component Fetch is
-  --  port(
-  --    clock        : in     std_logic;
-  --    branch_value : in     signed(11 downto 1);
-  --    stall        : in     std_logic;
-  --    im_addr      : buffer unsigned(31 downto 1);
-  --    pc           : buffer unsigned(31 downto 1) := (others => '0')
-  --    );
-  --end component;
-  --component Decode is
-  --  port (
-  --    clock               : in     std_logic;
-  --    stall               : buffer std_logic;
-  --    im_instr            : in     unsigned(15 downto 0);
-  --    radr1, radr2, radr3 : out    unsigned(3 downto 0);
-  --    instr               : buffer unsigned(15 downto 0)
-  --    );
-  --end component;
-  --component Execute is
-  --  port(
-  --    clock                      : in     std_logic;
-  --    instr                      : in     unsigned(15 downto 0);
-  --    rdata1, rdata2, rdata3     : in     unsigned(31 downto 0);
-  --    pc                         : in     unsigned(31 downto 1);
-  --    defer_load                 : out    std_logic;
-  --    branch_value               : out    signed(11 downto 1);
-  --    Nflag, Zflag, Cflag, Vflag : buffer std_logic;
-  --    wadr                       : out    unsigned(3 downto 0);
-  --    wdata                      : out    unsigned(31 downto 0);
-  --    rf_wr                      : out    std_logic;
-  --    dm_addr                    : out    unsigned(31 downto 2);
-  --    dm_data_wr                 : out    unsigned(31 downto 0);
-  --    dm_we                      : out    std_logic
-  --    );
-  --end component;
-  --component Store is
-  --  port(
-  --    defer_load : in  std_logic;
-  --    dm_data_rd : in  unsigned(31 downto 0);
-  --    instr      : in  unsigned(15 downto 0);
-  --    wadr       : out unsigned(3 downto 0);
-  --    wdata      : out unsigned(31 downto 0);
-  --    write_reg  : out std_logic
-  --    );
-  --end component;
-
-
 -- SIGNALS --
-  signal pc                                         : unsigned(31 downto 0);
-  signal pc_exec : signed(31 downto 0);
+  signal pc                                         : unsigned(31 downto 0) := (others => '0');
+  signal pc_exec                                    : signed(31 downto 0);
   signal take_branch                                : boolean;
 --signal branch_value                               : signed(11 downto 1) := (others => '0');
   signal stall                                      : std_logic;
@@ -114,7 +66,5 @@ begin
     write_reg_exec  when '0',
     write_reg_store when '1',
     'X'             when others;
-
-
 
 end Pipeline;

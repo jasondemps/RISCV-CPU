@@ -1,0 +1,1121 @@
+# Loading project RISCV
+# Compile of top.vhd was successful.
+# Compile of Decode.vhdl failed with 2 errors.
+# Compile of dmem.vhd was successful.
+# Compile of Execute.vhdl was successful with warnings.
+# Compile of helpers.vhdl was successful.
+# Compile of hex-decoder.vhdl was successful.
+# Compile of imem.vhd was successful.
+# Compile of Interceptor.vhdl was successful.
+# Compile of Pipeline.vhdl failed with 10 errors.
+# Compile of rfile.vhd was successful.
+# Compile of Store.vhdl was successful.
+# Compile of Fetch.vhdl was successful.
+# 12 compiles, 2 failed with 12 errors.
+# Compile of Decode.vhdl was successful.
+# Compile of helpers.vhdl was successful.
+# 2 compiles, 0 failed with no errors.
+# Compile of top.vhd failed with 9 errors.
+# Compile of Decode.vhdl failed with 2 errors.
+# Compile of dmem.vhd was successful.
+# Compile of Execute.vhdl was successful with warnings.
+# Compile of helpers.vhdl was successful.
+# Compile of hex-decoder.vhdl was successful.
+# Compile of imem.vhd was successful.
+# Compile of Interceptor.vhdl was successful.
+# Compile of Pipeline.vhdl failed with 7 errors.
+# Compile of rfile.vhd was successful.
+# Compile of Store.vhdl was successful.
+# Compile of Fetch.vhdl was successful.
+# 12 compiles, 3 failed with 18 errors.
+# Compile of top.vhd failed with 9 errors.
+# Compile of Decode.vhdl failed with 2 errors.
+# Compile of dmem.vhd was successful.
+# Compile of Execute.vhdl was successful with warnings.
+# Compile of helpers.vhdl was successful.
+# Compile of hex-decoder.vhdl was successful.
+# Compile of imem.vhd was successful.
+# Compile of Interceptor.vhdl was successful.
+# Compile of Pipeline.vhdl was successful.
+# Compile of rfile.vhd was successful.
+# Compile of Store.vhdl was successful.
+# Compile of Fetch.vhdl was successful.
+# 12 compiles, 2 failed with 11 errors.
+# Compile of Decode.vhdl was successful with warnings.
+# Compile of top.vhd failed with 9 errors.
+# Compile of top.vhd was successful.
+vsim work.top
+# vsim work.top 
+# Start time: 15:50:32 on Nov 03,2017
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.top(top)
+# ** Error: (vsim-13) Recompile work.pipeline(pipeline) because work.decode has changed.
+# Load interrupted
+# Error loading design
+# End time: 15:50:33 on Nov 03,2017, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# Compile of Pipeline.vhdl was successful.
+vsim work.top
+# vsim work.top 
+# Start time: 15:50:54 on Nov 03,2017
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.top(top)
+# Loading work.helpers(body)
+# Loading synopsys.attributes
+# Loading ieee.std_logic_misc(body)
+# Loading work.declares
+# Loading work.pipeline(pipeline)
+# Loading work.fetch(fetch)
+# Loading work.decode(decode)
+# Loading work.execute(execute)
+# Loading work.store(store)
+# Loading work.dmem(dmem)
+# Loading work.imem(imem)
+# Loading work.rfile(rfile)
+mem load -i /home/hrr4/Projects/RISCV-CPU/src/programs/main.hex -format hex -filltype value -filldata 0 -fillradix symbolic -skip 0 /top/prog_mem/rom
+# (vsim-3632) Illegal character ':' for radix 'hexadecimal' on line 1 of file "/home/hrr4/Projects/RISCV-CPU/src/programs/main.hex".
+mem load -i /home/hrr4/Projects/RISCV-CPU/src/programs/main.hex -filltype value -filldata 0 -fillradix symbolic -skip 0 /top/prog_mem/rom
+# (vsim-3650) Format not specified for file '/home/hrr4/Projects/RISCV-CPU/src/programs/main.hex'.
+mem load -i /home/hrr4/Projects/RISCV-CPU/src/programs/main.hex -filltype value -filldata 0 -fillradix symbolic -skip 0 /top/prog_mem/rom
+# (vsim-3650) Format not specified for file '/home/hrr4/Projects/RISCV-CPU/src/programs/main.hex'.
+mem load -filltype value -filldata 1234567891010101010 -fillradix symbolic /top/prog_mem/rom(0)
+# (vsim-3654) Value '1234567891010101010' is not legal for this signal.
+mem load -i /home/hrr4/Projects/RISCV-CPU/src/programs/main.binary -format mti -filltype value -filldata 0 -fillradix symbolic -skip 0 /top/prog_mem/rom
+vsim work.top
+# End time: 12:42:25 on Nov 04,2017, Elapsed time: 20:51:31
+# Errors: 4, Warnings: 0
+# vsim work.top 
+# Start time: 12:42:26 on Nov 04,2017
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.top(top)
+# Loading work.helpers(body)
+# Loading synopsys.attributes
+# Loading ieee.std_logic_misc(body)
+# Loading work.declares
+# Loading work.pipeline(pipeline)
+# Loading work.fetch(fetch)
+# Loading work.decode(decode)
+# Loading work.execute(execute)
+# Loading work.store(store)
+# Loading work.dmem(dmem)
+# Loading work.imem(imem)
+# Loading work.rfile(rfile)
+mem load -i /home/hrr4/Projects/RISCV-CPU/src/programs/main.mem -format mti -filltype value -filldata 0 -fillradix symbolic -skip 0 /top/prog_mem/rom
+run -continue
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 60 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+restart
+mem load -i /home/hrr4/Projects/RISCV-CPU/src/programs/main.mem -format mti -filltype value -filldata 0 -fillradix symbolic -skip 0 /top/prog_mem/rom
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__47 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl line 101
+step -over
+run
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 34
+run
+# Break in Process line__53 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Fetch.vhdl line 56
+step -over
+step -over
+# Load canceled
+restart
+mem load -i /home/hrr4/Projects/RISCV-CPU/src/programs/main.mem -format mti -filltype value -filldata 0 -fillradix symbolic -skip 0 /top/prog_mem/rom
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__47 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl line 101
+run
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 34
+run
+# Break in Process line__53 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Fetch.vhdl line 56
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+step -over
+step -over
+step -over
+step -over
+run
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 34
+step
+step
+step
+restart
+mem load -i /home/hrr4/Projects/RISCV-CPU/src/programs/math.mem -format mti -filltype value -filldata 0 -fillradix symbolic -skip 0 /top/prog_mem/rom
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__47 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl line 101
+run
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 34
+run
+# Break in Process line__53 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Fetch.vhdl line 56
+step -over
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+step -over
+step -over
+run
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 34
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__47 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl line 101
+step -over
+step -over
+# Next activity is in 10 ns.
+run
+# Break in Process line__53 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Fetch.vhdl line 56
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 60 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__47 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl line 101
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+quit -sim
+# End time: 14:35:28 on Nov 04,2017, Elapsed time: 1:53:02
+# Errors: 1, Warnings: 18
+# Compile of Execute.vhdl failed with 2 errors.
+# Compile of Execute.vhdl failed with 2 errors.
+# Compile of Execute.vhdl failed with 2 errors.
+# Compile of Execute.vhdl failed with 3 errors.
+# Compile of Execute.vhdl failed with 2 errors.
+# Compile of Execute.vhdl failed with 2 errors.
+# Compile of Execute.vhdl failed with 2 errors.
+# Compile of Execute.vhdl failed with 5 errors.
+# Compile of Execute.vhdl was successful with warnings.
+vsim work.top
+# vsim work.top 
+# Start time: 14:51:57 on Nov 04,2017
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.top(top)
+# Loading work.helpers(body)
+# Loading synopsys.attributes
+# Loading ieee.std_logic_misc(body)
+# Loading work.declares
+# Loading work.pipeline(pipeline)
+# Loading work.fetch(fetch)
+# Loading work.decode(decode)
+# Loading work.execute(execute)
+# Loading work.store(store)
+# Loading work.dmem(dmem)
+# Loading work.imem(imem)
+# Loading work.rfile(rfile)
+mem load -i /home/hrr4/Projects/RISCV-CPU/src/programs/math.mem -format mti -filltype value -filldata 0 -fillradix symbolic -skip 0 /top/prog_mem/rom
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__38 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl line 91
+step -over
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+step -over
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__38 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl line 91
+step -over
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+step -over
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 60 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__38 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl line 91
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+# Next activity is in 10 ns.
+step -over
+run
+run
+run -continue
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run -all
+# Break key hit
+# Simulation stop requested.
+# WARNING: No extended dataflow license exists
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run -continue
+run -all
+# Compile of top.vhd was successful.
+# Compile of Decode.vhdl was successful with warnings.
+# Compile of dmem.vhd was successful.
+# Compile of Execute.vhdl was successful with warnings.
+# Compile of helpers.vhdl was successful.
+# Compile of hex-decoder.vhdl was successful.
+# Compile of imem.vhd was successful.
+# Compile of Interceptor.vhdl was successful.
+# Compile of Pipeline.vhdl was successful.
+# Compile of rfile.vhd was successful.
+# Compile of Store.vhdl was successful.
+# Compile of Fetch.vhdl was successful.
+# 12 compiles, 0 failed with no errors.
+vsim work.top
+# End time: 14:56:50 on Nov 04,2017, Elapsed time: 0:04:53
+# Errors: 0, Warnings: 7
+# vsim work.top 
+# Start time: 14:56:50 on Nov 04,2017
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.top(top)
+# Loading work.helpers(body)
+# Loading synopsys.attributes
+# Loading ieee.std_logic_misc(body)
+# Loading work.declares
+# Loading work.pipeline(pipeline)
+# Loading work.fetch(fetch)
+# Loading work.decode(decode)
+# Loading work.execute(execute)
+# Loading work.store(store)
+# Loading work.dmem(dmem)
+# Loading work.imem(imem)
+# Loading work.rfile(rfile)
+mem load -i /home/hrr4/Projects/RISCV-CPU/src/programs/math.mem -format mti -filltype value -filldata 0 -fillradix symbolic -skip 0 /top/prog_mem/rom
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 38
+run
+# Break in Process line__53 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Fetch.vhdl line 56
+run
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 38
+add wave -position insertpoint sim:/top/cpu_pipeline/Decode_Pipe/line__25/*
+# (vish-4014) No objects found matching '/top/cpu_pipeline/Decode_Pipe/line__25/*'.
+step -over
+step -over
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__53 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Fetch.vhdl line 56
+run
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+restart
+mem load -i /home/hrr4/Projects/RISCV-CPU/src/programs/math.mem -format mti -filltype value -filldata 0 -fillradix symbolic -skip 0 /top/prog_mem/rom
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 38
+run
+# Break in Process line__53 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Fetch.vhdl line 56
+run
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+run
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 38
+step -over
+step -over
+step -over
+step -over
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__53 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Fetch.vhdl line 56
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+run
+# Break in Process line__53 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Fetch.vhdl line 56
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 60 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__38 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl line 93
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+# Next activity is in 10 ns.
+run
+# Break in Process line__53 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Fetch.vhdl line 56
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+# Warning: Unable to determine driver(s) for "sim:/top/rfile_mem/write"
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+# Next activity is in 10 ns.
+run
+# Break in Process line__53 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Fetch.vhdl line 56
+run
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+# Next activity is in 10 ns.
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+# Compile of Fetch.vhdl was successful.
+restart
+# Compile of top.vhd was successful.
+# Compile of Pipeline.vhdl was successful.
+# Compile of Fetch.vhdl failed with 2 errors.
+# 3 compiles, 1 failed with 2 errors.
+# Compile of Fetch.vhdl was successful with warnings.
+restart
+# Loading work.top(top)
+# Loading work.pipeline(pipeline)
+# Loading work.fetch(fetch)
+mem load -i /home/hrr4/Projects/RISCV-CPU/src/programs/math.mem -format mti -filltype value -filldata 0 -fillradix symbolic -skip 0 /top/prog_mem/rom
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 38
+add watch  \
+sim:/top/im_addr
+add watch  \
+sim:/top/cpu_pipeline/pc
+run
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 1  Instance: /top/prog_mem
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 40 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 38
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+run
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+step -over
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 60 ns  Iteration: 1  Instance: /top/prog_mem
+step -over
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 60 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__38 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl line 93
+step -over
+step -over
+step -over
+step -over
+step -over
+run
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+step -over
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 1  Instance: /top/prog_mem
+step -over
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+run
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 100 ns  Iteration: 1  Instance: /top/prog_mem
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+run
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 120 ns  Iteration: 1  Instance: /top/prog_mem
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+run
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 140 ns  Iteration: 1  Instance: /top/prog_mem
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+run
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 160 ns  Iteration: 1  Instance: /top/prog_mem
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+# Compile of top.vhd was successful.
+# Compile of Decode.vhdl was successful with warnings.
+# Compile of dmem.vhd was successful.
+# Compile of Execute.vhdl was successful with warnings.
+# Compile of helpers.vhdl was successful.
+# Compile of hex-decoder.vhdl was successful.
+# Compile of imem.vhd was successful.
+# Compile of Interceptor.vhdl was successful.
+# Compile of Pipeline.vhdl was successful.
+# Compile of rfile.vhd was successful.
+# Compile of Store.vhdl was successful.
+# Compile of Fetch.vhdl was successful.
+# 12 compiles, 0 failed with no errors.
+restart
+# Loading work.top(top)
+# Loading work.helpers(body)
+# Loading work.pipeline(pipeline)
+# Loading work.fetch(fetch)
+# Loading work.decode(decode)
+# Loading work.execute(execute)
+# Loading work.store(store)
+# Loading work.dmem(dmem)
+# Loading work.imem(imem)
+# Loading work.rfile(rfile)
+mem load -i /home/hrr4/Projects/RISCV-CPU/src/programs/math.mem -format mti -filltype value -filldata 0 -fillradix symbolic -skip 0 /top/prog_mem/rom
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 38
+run
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 40 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 38
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 60 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__38 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl line 93
+step -over
+step -over
+step -over
+step -over
+step -over
+run
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 38
+step -over
+run
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+# Compile of Fetch.vhdl was successful.
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+# Compile of top.vhd was successful.
+# Compile of Decode.vhdl was successful with warnings.
+# Compile of dmem.vhd was successful.
+# Compile of Execute.vhdl was successful with warnings.
+# Compile of helpers.vhdl was successful.
+# Compile of hex-decoder.vhdl was successful.
+# Compile of imem.vhd was successful.
+# Compile of Interceptor.vhdl was successful.
+# Compile of Pipeline.vhdl was successful.
+# Compile of rfile.vhd was successful.
+# Compile of Store.vhdl was successful.
+# Compile of Fetch.vhdl was successful.
+# 12 compiles, 0 failed with no errors.
+restart
+# Loading work.top(top)
+# Loading work.helpers(body)
+# Loading work.pipeline(pipeline)
+# Loading work.fetch(fetch)
+# Loading work.decode(decode)
+# Loading work.execute(execute)
+# Loading work.store(store)
+# Loading work.dmem(dmem)
+# Loading work.imem(imem)
+# Loading work.rfile(rfile)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 38
+run
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+mem load -i /home/hrr4/Projects/RISCV-CPU/src/programs/math.mem -format mti -filltype value -filldata 0 -fillradix symbolic -skip 0 /top/prog_mem/rom
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 40 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 38
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+add watch  \
+sim:/top/prog_mem/im_instr
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 60 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__38 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl line 93
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+run
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 38
+step -over
+# Compile of top.vhd was successful.
+# Compile of Decode.vhdl was successful with warnings.
+# Compile of dmem.vhd was successful.
+# Compile of Execute.vhdl was successful with warnings.
+# Compile of helpers.vhdl was successful.
+# Compile of hex-decoder.vhdl was successful.
+# Compile of imem.vhd was successful.
+# Compile of Interceptor.vhdl was successful.
+# Compile of Pipeline.vhdl was successful.
+# Compile of rfile.vhd was successful.
+# Compile of Store.vhdl was successful.
+# Compile of Fetch.vhdl was successful.
+# 12 compiles, 0 failed with no errors.
+run
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+run
+# Break in Process line__38 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl line 93
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+# Load canceled
+# Compile of top.vhd was successful.
+# Compile of Decode.vhdl was successful with warnings.
+# Compile of dmem.vhd was successful.
+# Compile of Execute.vhdl was successful with warnings.
+# Compile of helpers.vhdl was successful.
+# Compile of hex-decoder.vhdl was successful.
+# Compile of imem.vhd was successful.
+# Compile of Interceptor.vhdl was successful.
+# Compile of Pipeline.vhdl was successful.
+# Compile of rfile.vhd was successful.
+# Compile of Store.vhdl was successful.
+# Compile of Fetch.vhdl was successful.
+# 12 compiles, 0 failed with no errors.
+restart
+# Loading work.top(top)
+# Loading work.helpers(body)
+# Loading work.pipeline(pipeline)
+# Loading work.fetch(fetch)
+# Loading work.decode(decode)
+# Loading work.execute(execute)
+# Loading work.store(store)
+# Loading work.dmem(dmem)
+# Loading work.imem(imem)
+# Loading work.rfile(rfile)
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# Break in Architecture rfile at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 57
+restart
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 38
+run
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 40 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 60 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 60 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 80 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 80 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 100 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 100 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+restart
+mem load -i /home/hrr4/Projects/RISCV-CPU/src/programs/math.mem -format mti -filltype value -filldata 0 -fillradix symbolic -skip 0 /top/prog_mem/rom
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 38
+run
+# Break in Process line__57 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Fetch.vhdl line 60
+run
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 40 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 38
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__57 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Fetch.vhdl line 60
+# Compile of Fetch.vhdl was successful.
+restart
+# Loading work.fetch(fetch)
+mem load -i /home/hrr4/Projects/RISCV-CPU/src/programs/math.mem -format mti -filltype value -filldata 0 -fillradix symbolic -skip 0 /top/prog_mem/rom
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 0 ps  Iteration: 0  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 38
+run
+# Break in Process line__57 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Fetch.vhdl line 60
+run
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 40 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__25 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 38
+step -over
+step -over
+run
+# ** Warning: NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# ** Warning: NUMERIC_STD."/=": metavalue detected, returning TRUE
+#    Time: 40 ns  Iteration: 3  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__57 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Fetch.vhdl line 60
+run
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+run
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 60 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+# Break in Process line__38 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl line 93
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+run
+# Break in Process line__57 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Fetch.vhdl line 60
+run
+# Break in Process line__76 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Decode.vhdl line 81
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/dmem.vhd line 26
+run
+# Break in Process line__21 at /home/hrr4/Projects/RISCV-CPU/src/cpu/imem.vhd line 24
+run
+# Break in Process line__30 at /home/hrr4/Projects/RISCV-CPU/src/cpu/rfile.vhd line 34
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+step -over
+# ** Warning: NUMERIC_STD.TO_SIGNED: vector truncated
+#    Time: 80 ns  Iteration: 2  Instance: /top/cpu_pipeline/Exec_Pipe
+step -over
+step -over
+step -over
+run
+# Break in Process line__38 at /home/hrr4/Projects/RISCV-CPU/src/cpu/Execute.vhdl line 93
+# Compile of top.vhd was successful.
+# Compile of Decode.vhdl was successful with warnings.
+# Compile of dmem.vhd was successful.
+# Compile of Execute.vhdl was successful with warnings.
+# Compile of helpers.vhdl was successful.
+# Compile of hex-decoder.vhdl was successful.
+# Compile of imem.vhd was successful.
+# Compile of Interceptor.vhdl was successful.
+# Compile of Pipeline.vhdl was successful.
+# Compile of rfile.vhd was successful.
+# Compile of Store.vhdl was successful.
+# Compile of Fetch.vhdl was successful.
+# 12 compiles, 0 failed with no errors.
+mem load -i /home/hrr4/Projects/RISCV-CPU/src/programs/math.mem -format mti -filltype value -filldata 0 -fillradix symbolic -skip 0 /top/prog_mem/rom
+# End time: 18:16:11 on Nov 06,2017, Elapsed time: 52:19:21
+# Errors: 2, Warnings: 72

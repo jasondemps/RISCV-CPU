@@ -3,7 +3,7 @@ use ieee.numeric_std.all;
 use ieee.std_logic_1164.all;
 
 package helpers is
-  --constant NOP     : unsigned(15 downto 0) := x"EF00";
+  constant NOP     : unsigned(15 downto 0) := x"EF00";
   constant reg_len : natural               := 4;
 
   type lookup_t is array(integer range <>) of integer range 0 to 512; --unsigned(10 downto 2);
